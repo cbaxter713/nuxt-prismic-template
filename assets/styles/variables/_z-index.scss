@@ -1,0 +1,37 @@
+$z-index-gap: 100;
+$z-index-level-below-page: 100;
+$z-index-level-page: $z-index-level-below-page + $z-index-gap;
+$z-index-level-footer: $z-index-level-page + $z-index-gap;
+$z-index-level-header: $z-index-level-footer + $z-index-gap;
+$z-index-level-sidebar: $z-index-level-header + $z-index-gap;
+$z-index-level-modal: $z-index-level-sidebar + $z-index-gap;
+$z-index-level-loading: $z-index-level-modal + $z-index-gap;
+$z-index-level-super: $z-index-level-modal + $z-index-gap;
+
+//Create Z-index map here, by page section
+//Below Page
+
+
+
+//Page
+
+
+
+//Footer
+
+
+
+
+//Header
+
+
+
+//Sidebar
+
+
+
+//Modal
+
+
+
+//Super

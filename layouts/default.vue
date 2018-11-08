@@ -25,27 +25,6 @@
   }
 </script>
 
-<style>
-  @import "../assets/css/reset.css";
+<style lang="scss">
 
-  main {
-    background-color: #000;
-    padding-top: 70px;
-    width: 100%;
-    min-height: 100vh;
-    color: #fff;
-    font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-
-  .fade-enter-active,
-  .fade-leave-active {
-    transition-duration: 0.3s;
-    transition-property: opacity;
-    transition-timing-function: ease;
-  }
-
-  .fade-enter,
-  .fade-leave-active {
-    opacity: 0
-  }
 </style>

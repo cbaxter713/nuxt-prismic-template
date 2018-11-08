@@ -22,7 +22,7 @@ const breakpoints = {
           this.$store.dispatch('site/changeBreakpoint', 4)
         }
       } else if (w >= 1392) {
-        // fullhd
+        // fullhdF
         if (this.breakpoint !== 5) {
           this.$store.dispatch('site/changeBreakpoint', 5)
         }

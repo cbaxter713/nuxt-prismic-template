@@ -1,4 +1,5 @@
 const pkg = require('./package')
+const resolve = require('path').resolve
 
 module.exports = {
   mode: 'universal',
@@ -45,6 +46,7 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    //['nuxt-sass-resources-loader', '~assets/styles/variables/variables.scss'],
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
@@ -62,6 +64,12 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    postcss: [
+      require('autoprefixer')({
+        browsers: ['> 5%']
+      })
+    ],
+
     /*
     ** You can extend webpack config hereUnhandledPromiseRejectionWarning:
     */

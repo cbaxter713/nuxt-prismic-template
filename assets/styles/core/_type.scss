@@ -1,0 +1,28 @@
+h1, .h1 {
+  font-size: $font-size-xxlarge;
+}
+
+h2, .h2 {
+  font-size: $font-size-xlarge;
+}
+
+h3, .h3 {
+  font-size: $font-size-large;
+}
+
+h4, .h4 {
+  font-size: $font-size-medium;
+}
+
+h5, .h5 {
+  font-size: $font-size-base;
+}
+
+
+p {
+  font-size: $font-size-small;
+
+  &.large {
+    font-size: $font-size-base;
+  }
+}

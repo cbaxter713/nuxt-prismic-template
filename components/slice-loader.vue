@@ -1,14 +1,9 @@
 <template>
   <section>
     <div v-for="slice in slices">
-      <template v-if="slice.slice_type === 'quote_with_color'">
-        <color-quote :fields="slice.primary"></color-quote>
-      </template>
-      <template v-else-if="slice.slice_type === 'split_callout'">
-        <split-callout :fields="slice.primary"></split-callout>
-      </template>
+        <color-quote v-if="slice.slice_type === 'quote_with_color'" :fields="slice.primary"></color-quote>
+        <split-callout  v-else-if="slice.slice_type === 'split_callout'" :fields="slice.primary"></split-callout>
     </div>
-
   </section>
 </template>
 
