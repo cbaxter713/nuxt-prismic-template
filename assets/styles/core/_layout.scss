@@ -6,6 +6,7 @@ html, body {
   padding: 0 $gutter;
   width: 100%;
   max-width: $container-width;
+  margin: 0 auto;
 
   @media (min-width: $screen-md-min) {
     padding: 0 $gutter*2;

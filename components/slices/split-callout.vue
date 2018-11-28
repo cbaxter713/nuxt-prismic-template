@@ -27,7 +27,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .split-callout {
     display: flex;
     height: 32vw;
@@ -54,7 +54,7 @@
 
   button {
     padding: 10px 20px;
-    background-color: teal;
+    background-color: $color-primary;
     color: white;
     text-align: center;
     margin: 20px 0;
