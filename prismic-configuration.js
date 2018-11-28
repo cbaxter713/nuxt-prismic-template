@@ -1,9 +1,10 @@
-import PrismicDOM from 'prismic-dom'
-let Elements = PrismicDOM.RichText.Elements
+import PrismicDOM from 'prismic-dom';
+const appEndpoints = require('./api');
+let Elements = PrismicDOM.RichText.Elements;
 
 export default {
-  apiEndpoint: 'https://vue-demo.cdn.prismic.io/api/v2',
-  accessToken: 'MC5XOEZxSkJFQUFFOEVyd1lu.L--_ve-_vQrvv71kc0rvv70S77-977-9eXgDGu-_ve-_ve-_ve-_ve-_ve-_ve-_ve-_ve-_ve-_vWEP77-9Pu-_ve-_vQ',
+  apiEndpoint: appEndpoints.prismic.apiEndpoint,
+  accessToken: appEndpoints.prismic.accessToken,
 
   linkResolver (doc) {
     // Define the url depending on the document type

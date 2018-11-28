@@ -1,5 +1,6 @@
-const pkg = require('./package')
-const resolve = require('path').resolve
+const pkg = require('./package');
+const resolve = require('path').resolve;
+const appEndpoints = require('./api');
 
 let url = 'https://zaneray.com';
 let title = pkg.name;
@@ -32,13 +33,18 @@ module.exports = {
       { hid: 'twitter:url', name: 'twitter:url', value: url }
     ],
     link: [
-      { hid: 'image_src', rel: 'image_src', href: img }
-    ],
-    link: [
+      { hid: 'image_src', rel: 'image_src', href: img },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      { src: 'https://static.cdn.prismic.io/prismic.min.js' }
+      { src: 'https://static.cdn.prismic.io/prismic.min.js' },
+      {
+        innerHTML: `
+          window.prismic = {
+            endpoint: ${appEndpoints.prismic.apiEndpoint}
+          };
+        `
+      }
     ]
   },
 
