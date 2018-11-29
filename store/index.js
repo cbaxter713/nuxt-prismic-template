@@ -30,6 +30,9 @@ export const actions = {
   },
   async setupPreview ({commit}, payload) {
     let previewUrl = await this.$prismic.setupPreview(payload);
+
+    console.log('state setup preview url is: ', url);
+
     if (previewUrl) {
       commit('SET_PREVIEW_URL', previewUrl)
     }

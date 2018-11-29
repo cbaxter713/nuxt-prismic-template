@@ -14,6 +14,8 @@
     },
     watch: {
       previewUrl(url) {
+        console.log('previewUrl changed to: ', url);
+
         if (url) {
           window.location.replace(url);
         }
