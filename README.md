@@ -17,6 +17,9 @@ $ npm start
 
 # generate static project
 $ npm run generate
+
+# deploy project to heroku
+$ npm run deploy:heroku
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
