@@ -9,6 +9,7 @@
 </template>
 
 <script>
+  import { setupPrismicPreview } from "../plugins/prismic";
   import AppHeader from '../components/decorator/app-header.vue';
   import AppFooter from '../components/decorator/app-footer.vue';
 
@@ -23,6 +24,7 @@
       }
     },
     beforeMount() {
+      //Register service worker globally
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
           navigator.serviceWorker.register('/sw.js').then(function(registration) {
@@ -34,6 +36,9 @@
           });
         });
       }
+
+      //Append Prismic window script on client side
+      setupPrismicPreview();
     }
   }
 </script>

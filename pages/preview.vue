@@ -7,7 +7,7 @@
 <script>
   export default {
     name: 'Preview',
-    beforeCreate () {
+    mounted () {
       const previewToken = this.$route.query.token;
 
       this.$prismic.client.previewSession(previewToken, this.$prismic.linkResolver, '/')

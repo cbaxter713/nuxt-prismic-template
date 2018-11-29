@@ -1,6 +1,5 @@
 const pkg = require('./package');
 const resolve = require('path').resolve;
-const appEndpoints = require('./api');
 
 let url = 'https://zaneray.com';
 let title = pkg.name;
@@ -37,14 +36,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      { src: 'https://static.cdn.prismic.io/prismic.min.js' },
-      {
-        innerHTML: `
-          window.prismic = {
-            endpoint: ${appEndpoints.prismic.apiEndpoint}
-          };
-        `
-      }
+      { src: 'https://static.cdn.prismic.io/prismic.min.js' }
     ]
   },
 

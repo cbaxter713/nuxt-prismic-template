@@ -3,6 +3,7 @@ import Prismic from 'prismic-javascript'
 import PrismicConfig from '~/prismic-configuration'
 import PrismicDOM from 'prismic-dom'
 import PrismicToolbar from 'prismic-toolbar'
+import { appEndpoints } from "../api";
 
 export default (ctx, inject) => {
   inject('prismic', new Vue({
@@ -50,4 +51,14 @@ export default (ctx, inject) => {
       }
     }
   }))
+}
+
+export function setupPrismicPreview() {
+  window.prismic = {
+    endpoint: appEndpoints.prismic.apiEndpoint
+  };
+
+  let prismicToolbarScript = document.createElement('script');
+  prismicToolbarScript.setAttribute('src',"//static.cdn.prismic.io/prismic.min.js");
+  document.head.appendChild(prismicToolbarScript);
 }

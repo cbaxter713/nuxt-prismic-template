@@ -1,5 +1,5 @@
 import PrismicDOM from 'prismic-dom';
-const appEndpoints = require('./api');
+import { appEndpoints } from "./api";
 let Elements = PrismicDOM.RichText.Elements;
 
 export default {
