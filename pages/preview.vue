@@ -8,8 +8,8 @@
   export default {
     name: 'Preview',
     beforeCreate () {
-      const token = this.$route.query.token;
-      this.$store.dispatch('setupPreview', token);
+      const previewToken = this.$route.query.token;
+      this.$prismic.runPreview(previewToken);
     }
   };
 </script>

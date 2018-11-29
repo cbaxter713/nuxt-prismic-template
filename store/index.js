@@ -22,8 +22,8 @@ export const actions = {
     return ctx
   },
   async setupPreview ({dispatch}, payload) {
-    let ctx = await dispatch('setCtx', null, {root: true});
-    ctx.api.previewSession(payload, PrismicConfig.linkResolver, '/').then((url) => {
+    let ctx = await dispatch('setCtx');
+    ctx.api.previewSession(payload, ctx.linkResolver, '/').then((url) => {
       window.location.replace(url);
     });
   }
