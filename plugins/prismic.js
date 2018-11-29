@@ -48,11 +48,11 @@ export default (ctx, inject) => {
           linkResolver: PrismicConfig.linkResolver
         }))
       },
-      runPreview (req, token) {
-        Prismic.getApi(PrismicConfig.apiEndpoint, {req: req})
+      setupPreview (req, token) {
+        return Prismic.getApi(PrismicConfig.apiEndpoint, {req: req})
           .then((api) => api.previewSession(token, PrismicConfig.linkResolver, '/'))
-          .then((url) => {
-            window.location.replace(url);
+          .then(url => {
+            return url
           });
       }
     }

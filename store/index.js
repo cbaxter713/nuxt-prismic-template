@@ -1,18 +1,25 @@
 import PrismicConfig from '../prismic-configuration';
 
 export const state = () => ({
-  ctx: null
+  ctx: null,
+  previewUrl: null
 })
 
 export const getters = {
   ctx: state => {
     return state.ctx
+  },
+  previewUrl: state => {
+    return state.previewUrl
   }
 }
 
 export const mutations = {
   SET_CTX (state, ctx) {
     state.ctx = ctx
+  },
+  SET_PREVIEW_URL (state, url) {
+    state.previewUrl = url
   }
 }
 
@@ -21,11 +28,11 @@ export const actions = {
     let ctx = await this.$prismic.initApi()
     return ctx
   },
-  async setupPreview ({dispatch}, payload) {
-    let ctx = await dispatch('setCtx');
-    ctx.api.previewSession(payload, ctx.linkResolver, '/').then((url) => {
-      window.location.replace(url);
-    });
+  async setupPreview ({commit}, payload) {
+    let previewUrl = await this.$prismic.setupPreview(payload);
+    if (previewUrl) {
+      commit('SET_PREVIEW_URL', previewUrl)
+    }
   }
   // async nuxtServerInit ({dispatch}) {
   //   await dispatch('admin/getAdminSettings')
