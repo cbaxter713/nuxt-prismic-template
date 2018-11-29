@@ -3,7 +3,6 @@ import Prismic from 'prismic-javascript'
 import PrismicConfig from '~/prismic-configuration'
 import PrismicDOM from 'prismic-dom'
 import PrismicToolbar from 'prismic-toolbar'
-import { appEndpoints } from "../api";
 
 export default (ctx, inject) => {
   inject('prismic', new Vue({
@@ -48,6 +47,15 @@ export default (ctx, inject) => {
           accessToken,
           linkResolver: PrismicConfig.linkResolver
         }))
+      },
+      initPreview (req, token) {
+        Prismic.getApi(PrismicConfig.apiEndpoint, { req: req })
+          .then((api) => api.previewSession(token, PrismicConfig.linkResolver, '/'))
+          .then((url) => {
+            return url
+          })
+
+        window.location.replace(url);
       }
     }
   }))
@@ -55,7 +63,7 @@ export default (ctx, inject) => {
 
 export function setupPrismicPreview() {
   window.prismic = {
-    endpoint: appEndpoints.prismic.apiEndpoint
+    endpoint: PrismicConfig.apiEndpoint
   };
 
   let prismicToolbarScript = document.createElement('script');

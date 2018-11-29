@@ -5,15 +5,21 @@
 </template>
 
 <script>
+  import PrismicConfig from '../prismic-configuration';
+
   export default {
     name: 'Preview',
-    mounted () {
-      const previewToken = this.$route.query.token;
-
-      this.$prismic.client.previewSession(previewToken, this.$prismic.linkResolver, '/')
-        .then((url) => {
+    methods: {
+      async setupPreview() {
+        const token = this.$route.query.token;
+        let ctx = await this.$prismic.initApi();
+        ctx.api.previewSession(token, PrismicConfig.linkResolver, '/').then((url) => {
           window.location.replace(url);
-        })
+        });
+      }
+    },
+    mounted () {
+      this.setupPreview();
     }
   };
 </script>
