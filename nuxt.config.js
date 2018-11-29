@@ -34,9 +34,6 @@ module.exports = {
     link: [
       { hid: 'image_src', rel: 'image_src', href: img },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
-    script: [
-      { src: 'https://static.cdn.prismic.io/prismic.min.js' }
     ]
   },
 
@@ -56,8 +53,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: `~plugins/globalComponents` },
-    { src: `~plugins/prismic` }
+    { src: `~plugins/globalComponents` }
   ],
 
   /*
@@ -69,7 +65,19 @@ module.exports = {
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
     //'bootstrap-vue/nuxt',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    ['prismic-nuxt', {
+      endpoint: 'https://vue-demo.cdn.prismic.io/api/v2',
+      linkResolver: function (doc) {
+        // Define the url depending on the document type
+        if (doc.isBroken) { return '/not-found' }
+        if (doc.type === 'home_page') { return '/' }
+        if (doc.type === 'team_page') { return '/team' }
+        if (doc.type === 'team_member') { return '/team/' + doc.uid }
+        // Default to homepage
+        return '/'
+      }
+    }]
   ],
   /*
   ** Axios module configuration

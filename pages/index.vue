@@ -1,14 +1,14 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :data-wio-id="documentId">
     <hero-video v-if="bannerType === 'video'"
-                :title="$prismic.asText(title)"
-                :subtitle="$prismic.asText(subtitle)"
+                :title="$prismic.dom.RichText.asText(title)"
+                :subtitle="$prismic.dom.RichText.asText(subtitle)"
                 :videoUrl="bannerVideo.url"
                 :poster="bannerDesktop.url">
     </hero-video>
     <hero-banner v-else
-                 :title="$prismic.asText(title)"
-                 :subtitle="$prismic.asText(subtitle)"
+                 :title="$prismic.dom.RichText.asText(title)"
+                 :subtitle="$prismic.dom.RichText.asText(subtitle)"
                  :desktopUrl="bannerDesktop.url"
                  :mobileUrl="bannerMobile.url"
                  :imageAlt="bannerMobile.alt">

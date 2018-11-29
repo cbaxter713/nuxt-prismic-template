@@ -1,12 +1,12 @@
 export const state = () => ({
-  doc: null,
+  homeDoc: null,
   headerLinks: null,
   footerLinks: null
 })
 
 export const getters = {
-  doc: state => {
-    return state.doc
+  homeDoc: state => {
+    return state.homeDoc
   },
   headerLinks: state => {
     return state.headerLinks
@@ -19,7 +19,7 @@ export const getters = {
 
 export const mutations = {
   SET_HOME_PAGE (state, obj) {
-    state.doc = obj
+    state.homeDoc = obj
   },
   SET_HEADER_LINKS (state, obj) {
     state.headerLinks = obj
@@ -31,20 +31,31 @@ export const mutations = {
 
 
 export const actions = {
-  async getHomePage ({commit, dispatch}) {
-    let ctx = await dispatch('setCtx', null, {root: true})
-    const homeDoc = ctx.api.getSingle('home_page')
-    commit('SET_HOME_PAGE', homeDoc)
-    return homeDoc
+  async getHomePage ({getters, commit}) {
+    if (getters.homeDoc) {
+      return getters.homeDoc
+    } else {
+      const homeDoc = await this.$prismic.api.getSingle('home_page')
+      commit('SET_HOME_PAGE', homeDoc)
+      return homeDoc
+    }
   },
-  async getNav ({commit, dispatch}) {
-    let ctx = await dispatch('setCtx', null, {root: true});
-    const navData = ctx.api.getByUID('nav_menu', 'main-nav');
-    return navData
+  async getNav ({getters, commit}) {
+    if (getters.headerLinks) {
+      return getters.headerLinks
+    } else {
+      const navData = await this.$prismic.api.getByUID('nav_menu', 'main-nav');
+      commit('SET_HEADER_LINKS', navData)
+      return navData
+    }
   },
-  async getFooterNav ({commit, dispatch}) {
-    let ctx = await dispatch('setCtx', null, {root: true});
-    const navData = ctx.api.getByUID('nav_menu', 'footer-nav');
-    return navData
+  async getFooterNav ({getters, commit}) {
+    if (getters.footerLinks) {
+      return getters.footerLinks
+    } else {
+      const navData = await this.$prismic.api.getByUID('nav_menu', 'footer-nav');
+      commit('SET_FOOTER_LINKS', navData)
+      return navData
+    }
   }
 }

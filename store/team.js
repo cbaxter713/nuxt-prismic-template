@@ -1,65 +1,50 @@
 export const state = () => ({
-  doc: null,
-  pageIndex: null,
-  resultsPerPage: 8,
-  resultsSize: null,
-  totalResults: null,
-  totalPages: null,
-  nextPage: null,
-  previousPage: null,
-  posts: []
+  teamDoc: null,
+  teamMembers: []
 })
 
 export const getters = {
-  doc: state => {
-    return state.doc
+  teamDoc: state => {
+    return state.teamDoc
   },
-  pageIndex: state => {
-    return state.page
+  teamMembers: state => {
+    return state.teamMembers
   },
-  resultsSize: state => {
-    return state.resultsSize
-  },
-  totalResults: state => {
-    return state.totalResults
-  },
-  totalPages: state => {
-    return state.totalPages
-  },
-  nextPage: state => {
-    return state.nextPage
-  },
-  previousPage: state => {
-    return state.previousPage
-  },
-  posts: state => {
-    return state.posts
+  teamMemberById: (state) => (uid) => {
+    return state.teamMembers[uid]
   }
 }
-
 
 export const mutations = {
-  SET_TEAM_MEMBER (state, obj) {
-    state.doc = obj
-    state.pageIndex = obj.page
-    state.resultsSize = obj.results_size
-    state.totalResults = obj.total_result_size
-    state.totalPages = obj.total_pages
-    state.nextPage = obj.next_page
-    state.previousPage = obj.prev_page
-
-    state.posts = [...obj.results, ...state.posts]
+  SET_TEAM_DOC (state, doc) {
+    state.teamDoc = doc
+  },
+  SET_TEAM_MEMBER (state, memberData) {
+    state.teamMembers[memberData.uid] = memberData.doc
   }
 }
 
-
 export const actions = {
-  async getTeam ({dispatch}) {
-    let ctx = await dispatch('setCtx', null, {root: true})
-    return ctx.api.getSingle('team_page', {fetchLinks: ['team_member.name', 'team_member.image', 'team_member.position']})
+  async getTeam ({getters, commit}) {
+    if (getters.teamDoc) {
+      return getters.teamDoc
+    } else {
+      const teamDoc = await this.$prismic.api.getSingle('team_page', {fetchLinks: ['team_member.name', 'team_member.image', 'team_member.position']})
+      commit('SET_TEAM_DOC', teamDoc)
+      return teamDoc
+    }
   },
-  async getTeamMember ({commit, dispatch}, uid) {
-    let ctx = await dispatch('setCtx', null, {root: true})
-    return ctx.api.getByUID('team_member', uid)
+  async getTeamMemberByUid ({getters, commit}, uid) {
+    if (getters.teamMemberById(uid)) {
+      return getters.teamMemberById(uid)
+    } else {
+      const teamMemberDoc = await this.$prismic.api.getByUID('team_member', uid)
+      const memberData = {
+        uid: uid,
+        doc: teamMemberDoc
+      }
+      commit('SET_TEAM_MEMBER', memberData)
+      return teamMemberDoc
+    }
   }
 }

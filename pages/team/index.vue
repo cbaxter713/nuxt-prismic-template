@@ -1,14 +1,13 @@
 <template>
   <div class="container">
-    <!--<prismic-edit-button :documentId="documentId"/>-->
     <h1 class="title">
-      {{$prismic.asText(entry.title)}}
+      {{$prismic.dom.RichText.asText(entry.title)}}
     </h1>
     <section class="team-member-grid">
       <nuxt-link v-for="member in entry.team_members" :to="`/team/${member.team_member_list.slug}`" class="team-member" :key="member.team_member_list.slug">
         <img :src="member.team_member_list.data.image.url" />
-        <h3>{{$prismic.asText(member.team_member_list.data.name)}}</h3>
-        <p>{{$prismic.asText(member.team_member_list.data.title)}}</p>
+        <h3>{{$prismic.dom.RichText.asText(member.team_member_list.data.name)}}</h3>
+        <p>{{member.team_member_list.data.title}}</p>
       </nuxt-link>
     </section>
   </div>
@@ -30,9 +29,6 @@
     async asyncData ({ app, params, error, store }) {
       try {
         let entry = await store.dispatch('team/getTeam')
-
-        console.log('team', entry)
-
         return {
           document: entry,
           entry: entry.data

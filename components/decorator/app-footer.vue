@@ -19,9 +19,9 @@
     },
     methods: {
       getFooterLinks() {
-        console.log('get header links from header');
+        //console.log('get header links from header');
         this.$store.dispatch('home/getFooterNav').then(response => {
-          console.log('data, ', response.data.nav);
+          //console.log('data, ', response.data.nav);
           this.footerLinks = response.data.nav;
         });
       }

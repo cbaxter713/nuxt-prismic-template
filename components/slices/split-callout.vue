@@ -4,7 +4,7 @@
       <img :src="fields.callout_image.url" />
     </div>
     <div class="callout-content">
-      <h2 class="title">{{$prismic.asText(fields.callout_title)}}</h2>
+      <h2 class="title">{{$prismic.dom.RichText.asText(fields.callout_title)}}</h2>
       <h5 class="subtitle">{{fields.callout_subtitle}}</h5>
       <router-link :to="fields.button_url">
         <button id="myButton" class="button">{{fields.button_label}}</button>

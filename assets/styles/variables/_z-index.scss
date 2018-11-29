@@ -14,16 +14,17 @@ $z-index-level-super: $z-index-level-modal + $z-index-gap;
 
 
 //Page
+$main-page-z-index: $z-index-level-page;
+$prismic-edit-z-index: $main-page-z-index + 1;
 
 
-
-//Footer
-
+  //Footer
+$footer-z-index: $z-index-level-footer;
 
 
 
 //Header
-
+$header-z-index: $z-index-level-header;
 
 
 //Sidebar

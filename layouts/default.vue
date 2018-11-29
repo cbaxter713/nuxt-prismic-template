@@ -9,7 +9,6 @@
 </template>
 
 <script>
-  import { setupPrismicPreview } from "../plugins/prismic";
   import AppHeader from '../components/decorator/app-header.vue';
   import AppFooter from '../components/decorator/app-footer.vue';
 
@@ -36,13 +35,22 @@
           });
         });
       }
-
-      //Append Prismic window script on client side
-      setupPrismicPreview();
     }
   }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+  app-header {
+    position: relative;
+    z-index: $header-z-index;
+  }
 
+  main {
+    position: relative;
+    z-index: $main-page-z-index;
+  }
+
+  app-footer {
+    z-index: $footer-z-index;
+  }
 </style>

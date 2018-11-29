@@ -1,8 +1,8 @@
 <template>
-  <nuxt-link class="pr" :to="$prismic.asLink(link)" v-if="link.link_type === 'Document'">
+  <nuxt-link class="pr" :to="$prismic.dom.Link.url(link, $prismic.linkResolver)" v-if="link.link_type === 'Document'">
     <slot></slot>
   </nuxt-link>
-  <a :href="$prismic.asLink(link)" :target="linkTarget" v-else-if="link.link_type === 'Web'">
+  <a :href="$prismic.dom.Link.url(link, $prismic.linkResolver)" :target="linkTarget" v-else-if="link.link_type === 'Web'">
     <slot></slot>
   </a>
   <nuxt-link :to="link" v-else>

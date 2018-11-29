@@ -2,12 +2,12 @@
   <div class="container">
     <router-link to="/team" class="back-link">< Back</router-link>
     <div class="team-member-header">
-      <h1 class="title">{{$prismic.asText(entry.name)}}</h1>
-      <h4 class="position">- {{$prismic.asText(entry.position)}}</h4>
+      <h1 class="title">{{$prismic.dom.RichText.asText(entry.name)}}</h1>
+      <h4 class="position">- {{$prismic.dom.RichText.asText(entry.position)}}</h4>
     </div>
     <section class="team-member-body">
       <img :src="entry.image.url" />
-      <p>{{ $prismic.asText(entry.profile) }}</p>
+      <p>{{ $prismic.dom.RichText.asText(entry.profile) }}</p>
     </section>
   </div>
 </template>
@@ -27,7 +27,7 @@
     },
     async asyncData ({ app, params, error, store }) {
       try {
-        let entry = await store.dispatch('team/getTeamMember', params.slug)
+        let entry = await store.dispatch('team/getTeamMemberByUid', params.slug)
 
         return {
           document: entry,

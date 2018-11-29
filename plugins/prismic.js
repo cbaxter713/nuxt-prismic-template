@@ -1,10 +1,18 @@
 import Vue from 'vue'
 import Prismic from 'prismic-javascript'
-import PrismicConfig from '~/prismic-configuration'
 import PrismicDOM from 'prismic-dom'
+import PrismicConfig from '~/prismic-configuration'
 import PrismicToolbar from 'prismic-toolbar'
 
-export default (ctx, inject) => {
+export default async ({ app, req, route, res, query, redirect }, inject) => {
+  let options = {};
+
+  if (process.server) {
+    options.req = req
+  }
+
+  let api = await Prismic.api(PrismicConfig.apiEndpoint, options)
+
   inject('prismic', new Vue({
     computed: {
       predicates () {
@@ -12,6 +20,9 @@ export default (ctx, inject) => {
       },
       prismicDOM () {
         return PrismicDOM
+      },
+      api () {
+        return api
       }
     },
     methods: {
@@ -27,7 +38,7 @@ export default (ctx, inject) => {
       },
       asLink (link) {
         if (link) {
-          return this.prismicDOM.Link.url(link, PrismicConfig.linkResolver)
+          return this.prismicDOM.Link(link, PrismicConfig.linkResolver)
         }
       },
       asDate (date, format) {
@@ -47,27 +58,7 @@ export default (ctx, inject) => {
           accessToken,
           linkResolver: PrismicConfig.linkResolver
         }))
-      },
-      setupPreview (token, req) {
-        console.log('prismic setup preview with token: ', token);
-
-        return Prismic.getApi(PrismicConfig.apiEndpoint, {req: req})
-          .then((api) => api.previewSession(token, PrismicConfig.linkResolver, '/'))
-          .then(url => {
-            console.log('prismic setup preview url is: ', url);
-            return url
-          });
       }
     }
   }))
-}
-
-export function setupPrismicPreview() {
-  window.prismic = {
-    endpoint: PrismicConfig.apiEndpoint
-  };
-
-  let prismicToolbarScript = document.createElement('script');
-  prismicToolbarScript.setAttribute('src',"//static.cdn.prismic.io/prismic.min.js");
-  document.head.appendChild(prismicToolbarScript);
 }
