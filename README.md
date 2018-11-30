@@ -3,8 +3,9 @@
 > A Basic Nuxt project with Prismic headless CMS integration.
 
 ## Prerequisites
-> Nuxt requires your base `node` version to be at least `8.0`.
+Nuxt requires your base `node` version to be at least `8.0`.
 We recommend using `nvm` to manage the node versions on your machine.
+Learn how to [install nvm](https://github.com/creationix/nvm) if you don't already have it.
 
 ## Build Setup
 
