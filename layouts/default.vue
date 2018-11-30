@@ -1,10 +1,10 @@
 <template>
   <div id="app" class="app-wrapper">
-    <app-header :headerLinks="headerLinks.data.nav" :fixed="true"></app-header>
+    <app-header :headerLinks="headerLinkData" :fixed="true"></app-header>
     <main>
       <nuxt/>
     </main>
-    <app-footer :footerLinks="footerLinks.data.nav"></app-footer>
+    <app-footer :footerLinks="footerLinkData"></app-footer>
   </div>
 </template>
 
@@ -23,7 +23,13 @@
       ...mapGetters({
         headerLinks: 'navigation/headerLinks',
         footerLinks: 'navigation/footerLinks'
-      })
+      }),
+      headerLinkData() {
+        return this.headerLinks ? this.headerLinks.data.nav : null
+      },
+      footerLinkData() {
+        return this.footerLinks ? this.footerLinks.data.nav : null
+      }
     },
     beforeMount() {
       //Register service worker globally
