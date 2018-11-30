@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app-wrapper">
-    <app-header :fixed="true"></app-header>
+    <app-masthead :fixed="true"></app-masthead>
     <main>
       <nuxt/>
     </main>
@@ -9,13 +9,13 @@
 </template>
 
 <script>
-  import AppHeader from '../components/decorator/app-header.vue';
+  import AppMasthead from '../components/decorator/app-masthead.vue';
   import AppFooter from '../components/decorator/app-footer.vue';
 
   export default {
     name: 'BaseLayout',
     components: {
-      AppHeader,
+      AppMasthead,
       AppFooter
     },
     data() {

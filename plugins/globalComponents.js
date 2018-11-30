@@ -9,4 +9,6 @@ import Vue from 'vue'
 // So we check if the link from prismic is a Document or URL
 // And we return the correct template
 import prismicLink from '~/components/utility/prismic-link'
+import thorLogo from '~/components/utility/thor-logo'
 Vue.component('prismicLink', prismicLink)
+Vue.component('thorLogo', thorLogo)

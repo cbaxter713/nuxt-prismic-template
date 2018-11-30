@@ -26,7 +26,7 @@ html {
 *,
 ::before,
 ::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 ::before,
@@ -194,7 +194,7 @@ button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
-  border-style: 0;
+  border-style: none;
   padding: 0;
 }
 
