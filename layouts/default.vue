@@ -1,16 +1,17 @@
 <template>
   <div id="app" class="app-wrapper">
-    <app-header :fixed="true"></app-header>
+    <app-header :headerLinks="headerLinks.data.nav" :fixed="true"></app-header>
     <main>
       <nuxt/>
     </main>
-    <app-footer></app-footer>
+    <app-footer :footerLinks="footerLinks.data.nav"></app-footer>
   </div>
 </template>
 
 <script>
-  import AppHeader from '../components/decorator/app-header.vue';
-  import AppFooter from '../components/decorator/app-footer.vue';
+  import { mapGetters } from 'vuex';
+  import AppHeader from '../components/decorator/AppHeader.vue';
+  import AppFooter from '../components/decorator/AppFooter.vue';
 
   export default {
     name: 'BaseLayout',
@@ -18,9 +19,11 @@
       AppHeader,
       AppFooter
     },
-    data() {
-      return {
-      }
+    computed: {
+      ...mapGetters({
+        headerLinks: 'navigation/headerLinks',
+        footerLinks: 'navigation/footerLinks'
+      })
     },
     beforeMount() {
       //Register service worker globally

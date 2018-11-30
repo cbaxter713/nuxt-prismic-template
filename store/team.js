@@ -1,6 +1,6 @@
 export const state = () => ({
   teamDoc: null,
-  teamMembers: []
+  teamMembers: {}
 })
 
 export const getters = {

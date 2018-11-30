@@ -16,25 +16,12 @@
 <script>
   export default {
     name: "AppHeader",
-    data() {
-      return {
-        headerLinks: []
-      }
-    },
     props: [
+      'headerLinks',
       'fixed'
     ],
-    methods: {
-      getHeaderLinks() {
-        //console.log('get header links from header');
-        this.$store.dispatch('home/getNav').then(response => {
-          //console.log('data, ', response.data.nav);
-          this.headerLinks = response.data.nav;
-        });
-      }
-    },
-    created() {
-      this.getHeaderLinks();
+    mounted() {
+      console.log('headerLinks', this.headerLinks)
     }
   }
 </script>

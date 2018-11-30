@@ -8,8 +8,8 @@
 </template>
 
 <script>
-  import ColorQuote from './slices/color-quote.vue';
-  import SplitCallout from './slices/split-callout.vue';
+  import ColorQuote from '../slices/ColorQuote.vue';
+  import SplitCallout from '../slices/SplitCallout.vue';
 
   export default {
     name: "slice-loader",

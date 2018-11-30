@@ -1,26 +1,27 @@
 <template>
-  <div class="wrapper" :data-wio-id="documentId">
-    <hero-video v-if="bannerType === 'video'"
-                :title="$prismic.dom.RichText.asText(title)"
-                :subtitle="$prismic.dom.RichText.asText(subtitle)"
-                :videoUrl="bannerVideo.url"
-                :poster="bannerDesktop.url">
-    </hero-video>
-    <hero-banner v-else
-                 :title="$prismic.dom.RichText.asText(title)"
-                 :subtitle="$prismic.dom.RichText.asText(subtitle)"
-                 :desktopUrl="bannerDesktop.url"
-                 :mobileUrl="bannerMobile.url"
-                 :imageAlt="bannerMobile.alt">
-    </hero-banner>
-    <slice-loader :slices="slices"></slice-loader>
+  <div class="wrapper">
+    <prismic-preview :documentId="documentId">
+      <hero-video v-if="bannerType === 'video'"
+                  :title="$prismic.dom.RichText.asText(title)"
+                  :subtitle="$prismic.dom.RichText.asText(subtitle)"
+                  :videoUrl="bannerVideo.url"
+                  :poster="bannerDesktop.url">
+      </hero-video>
+      <hero-banner v-else
+                   :title="$prismic.dom.RichText.asText(title)"
+                   :subtitle="$prismic.dom.RichText.asText(subtitle)"
+                   :desktopUrl="bannerDesktop.url"
+                   :mobileUrl="bannerMobile.url"
+                   :imageAlt="bannerMobile.alt">
+      </hero-banner>
+      <slice-loader :slices="slices"></slice-loader>
+    </prismic-preview>
   </div>
 </template>
 
 <script>
-import HeroBanner from '../components/hero-banner.vue';
-import HeroVideo from '../components/hero-video.vue';
-import SliceLoader from '../components/slice-loader.vue';
+import HeroBanner from '../components/banners/HeroBanner.vue';
+import HeroVideo from '../components/banners/HeroVideo.vue';
 
 export default {
   head () {
@@ -44,9 +45,13 @@ export default {
       ]
     }
   },
+  components: {
+    HeroBanner,
+    HeroVideo
+  },
   async asyncData ({ app, params, error, store }) {
     try {
-      let entry = await store.dispatch('home/getHomePage');
+      let entry = await store.dispatch('getHomePage');
       let data = entry.data;
 
       return {
@@ -84,11 +89,6 @@ export default {
     seoUrl () {
       return `${this.$store.getters.baseUrl}${this.$route.fullPath}`
     }
-  },
-  components: {
-    HeroBanner,
-    HeroVideo,
-    SliceLoader
   }
 }
 </script>
@@ -100,27 +100,5 @@ export default {
     justify-content: center;
     align-items: center;
     text-align: center;
-  }
-
-  .title {
-    font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-      'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    display: block;
-    font-weight: 300;
-    font-size: 100px;
-    color: #35495e;
-    letter-spacing: 1px;
-  }
-
-  .subtitle {
-    font-weight: 300;
-    font-size: 42px;
-    color: #526488;
-    word-spacing: 5px;
-    padding-bottom: 15px;
-  }
-
-  .links {
-    padding-top: 15px;
   }
 </style>
