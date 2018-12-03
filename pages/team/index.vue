@@ -40,13 +40,13 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 40px 10px;
-  }
+     max-width: 1200px;
+     margin-left: auto;
+     margin-right: auto;
+     padding: 40px 10px;
+   }
 
   .title {
     font-size: 32px;
@@ -55,8 +55,8 @@
   .team-member-grid {
     display: grid;
     margin: 30px 0;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 20px;
+    /*grid-template-columns: 1fr 1fr 1fr;*/
+    /*grid-column-gap: 20px;*/
   }
 
   .team-member h3 {

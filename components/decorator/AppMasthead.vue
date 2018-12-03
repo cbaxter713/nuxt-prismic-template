@@ -15,27 +15,11 @@
 
 <script>
   export default {
-    name: "AppMasthead",
-    data() {
-      return {
-        headerLinks: []
-      }
-    },
+    name: 'AppMasthead',
     props: [
-      'fixed'
+      'fixed',
+      'headerLinks'
     ],
-    methods: {
-      getHeaderLinks() {
-        //console.log('get header links from header');
-        this.$store.dispatch('home/getNav').then(response => {
-          //console.log('data, ', response.data.nav);
-          this.headerLinks = response.data.nav;
-        });
-      }
-    },
-    created() {
-      this.getHeaderLinks();
-    }
   }
 </script>
 

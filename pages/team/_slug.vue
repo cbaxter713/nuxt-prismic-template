@@ -40,7 +40,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .back-link {
     display: block;
     font-size: 20px;
@@ -58,7 +58,7 @@
 
   .team-member-body {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-column-gap: 20px;
+    /*grid-template-columns: 1fr 2fr;*/
+    /*grid-column-gap: 20px;*/
   }
 </style>

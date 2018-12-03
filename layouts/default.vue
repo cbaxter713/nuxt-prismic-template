@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app-wrapper">
-    <app-header :headerLinks="headerLinkData"  :fixed="true"></app-header>
+    <app-masthead :headerLinks="headerLinkData"  :fixed="true"></app-masthead>
     <main>
       <nuxt/>
     </main>
