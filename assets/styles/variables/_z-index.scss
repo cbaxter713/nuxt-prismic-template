@@ -15,7 +15,7 @@ $z-index-level-super: $z-index-level-modal + $z-index-gap;
 
 //Page
 $main-page-z-index: $z-index-level-page;
-$prismic-edit-z-index: $main-page-z-index + 1;
+$prismic-edit-z-index:$z-index-level-modal + 1;
 
 
   //Footer
