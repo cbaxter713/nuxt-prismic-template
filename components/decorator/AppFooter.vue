@@ -11,24 +11,9 @@
 <script>
   export default {
     name: "AppFooter",
-    data() {
-      return {
-        title: "footer",
-        footerLinks: []
-      }
-    },
-    methods: {
-      getFooterLinks() {
-        //console.log('get header links from header');
-        this.$store.dispatch('home/getFooterNav').then(response => {
-          //console.log('data, ', response.data.nav);
-          this.footerLinks = response.data.nav;
-        });
-      }
-    },
-    created() {
-      this.getFooterLinks();
-    }
+    props: [
+      'footerLinks'
+    ]
   }
 </script>
 

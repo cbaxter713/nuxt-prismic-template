@@ -1,14 +1,37 @@
 import Vue from 'vue'
-// Utility Components
-// These are global components that we want access to
-// from most of our pages or components
+
+/*
+  Prismic Link
+  Helper component that takes a Prismic link object and resolves
+  the proper link markup, whether that be a nuxt-link or a tag
+ */
+import PrismicLink from '~/components/prismic/PrismicLink.vue'
+Vue.component('PrismicLink', PrismicLink)
 
 
-// Link Helper Component
-// Using Nuxt Link will resolve to a local route
-// So we check if the link from prismic is a Document or URL
-// And we return the correct template
-import prismicLink from '~/components/utility/prismic-link'
+/*
+  Prismic Preview
+  A wrapping component that takes a documentId and provides the
+  proper wrapping markup for the Prismic Preview Functionality
+ */
+import PrismicPreview from '~/components/prismic/PrismicPreview.vue'
+Vue.component('PrismicPreview', PrismicPreview)
+
+
+
+/*
+  Slice Loader
+  A conditional renderer that can take an array of Prismic slice components
+  and render each out appropriately, according to each slice's mapped Vue component
+ */
+import SliceLoader from '~/components/prismic/SliceLoader.vue'
+
+Vue.component('SliceLoader', SliceLoader)
+
+/*
+  Thor Logo
+  Just an SVG Logo
+*/
+
 import thorLogo from '~/components/utility/thor-logo'
-Vue.component('prismicLink', prismicLink)
 Vue.component('thorLogo', thorLogo)

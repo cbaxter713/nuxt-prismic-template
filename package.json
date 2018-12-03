@@ -1,6 +1,6 @@
 {
   "name": "nuxt-template",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Basic Nuxt project implementation",
   "author": "Colin Baxter",
   "private": true,
@@ -27,7 +27,8 @@
     "prismic-dom": "^2.0.6",
     "prismic-javascript": "^1.5.0-beta.1",
     "prismic-nuxt": "^0.1.2",
-    "prismic-toolbar": "^0.0.8"
+    "prismic-toolbar": "^0.0.8",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "node-sass": "^4.11.0",

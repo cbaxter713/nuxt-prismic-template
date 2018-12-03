@@ -1,13 +1,9 @@
 export const state = () => ({
-  homeDoc: null,
   headerLinks: null,
   footerLinks: null
 })
 
 export const getters = {
-  homeDoc: state => {
-    return state.homeDoc
-  },
   headerLinks: state => {
     return state.headerLinks
   },
@@ -18,9 +14,6 @@ export const getters = {
 
 
 export const mutations = {
-  SET_HOME_PAGE (state, obj) {
-    state.homeDoc = obj
-  },
   SET_HEADER_LINKS (state, obj) {
     state.headerLinks = obj
   },
@@ -31,16 +24,7 @@ export const mutations = {
 
 
 export const actions = {
-  async getHomePage ({getters, commit}) {
-    if (getters.homeDoc) {
-      return getters.homeDoc
-    } else {
-      const homeDoc = await this.$prismic.api.getSingle('home_page')
-      commit('SET_HOME_PAGE', homeDoc)
-      return homeDoc
-    }
-  },
-  async getNav ({getters, commit}) {
+  async getMainNav ({getters, commit}) {
     if (getters.headerLinks) {
       return getters.headerLinks
     } else {
@@ -56,6 +40,15 @@ export const actions = {
       const navData = await this.$prismic.api.getByUID('nav_menu', 'footer-nav');
       commit('SET_FOOTER_LINKS', navData)
       return navData
+    }
+  },
+  async getFullDecoratorNav ({getters, commit, dispatch}) {
+    const headerNavData = await dispatch('getMainNav');
+    const footerNavData = await dispatch('getFooterNav');
+
+    return {
+      headerNav: headerNavData,
+      footerNav: footerNavData
     }
   }
 }

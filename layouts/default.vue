@@ -1,16 +1,18 @@
 <template>
   <div id="app" class="app-wrapper">
-    <app-masthead :fixed="true"></app-masthead>
+    <app-header :headerLinks="headerLinkData"  :fixed="true"></app-header>
     <main>
       <nuxt/>
     </main>
-    <app-footer></app-footer>
+    <app-footer :footerLinks="footerLinkData"></app-footer>
   </div>
 </template>
 
 <script>
-  import AppMasthead from '../components/decorator/app-masthead.vue';
-  import AppFooter from '../components/decorator/app-footer.vue';
+  import { mapGetters } from 'vuex';
+  import AppMasthead from '../components/decorator/AppMasthead.vue';
+  import AppFooter from '../components/decorator/AppFooter.vue';
+
 
   export default {
     name: 'BaseLayout',
@@ -18,8 +20,16 @@
       AppMasthead,
       AppFooter
     },
-    data() {
-      return {
+    computed: {
+      ...mapGetters({
+        headerLinks: 'navigation/headerLinks',
+        footerLinks: 'navigation/footerLinks'
+      }),
+      headerLinkData() {
+        return this.headerLinks ? this.headerLinks.data.nav : null
+      },
+      footerLinkData() {
+        return this.footerLinks ? this.footerLinks.data.nav : null
       }
     },
     beforeMount() {
@@ -40,7 +50,7 @@
 </script>
 
 <style scoped lang="scss">
-  app-header {
+  app-masthead {
     position: relative;
     z-index: $header-z-index;
   }

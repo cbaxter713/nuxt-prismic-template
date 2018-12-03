@@ -2,44 +2,40 @@ importScripts('/_nuxt/workbox.5c678697.js')
 
 workbox.precaching.precacheAndRoute([
   {
-    "url": "/_nuxt/1eec24b68283b4661071.js",
-    "revision": "514f7e3449dfce46b80a6b64d04c4291"
+    "url": "/_nuxt/1177cb336b35f2ea134d.js",
+    "revision": "10bb75716b2fa6cfe63b7445a3b69f4c"
   },
   {
-    "url": "/_nuxt/2c9831b9070330dac837.js",
-    "revision": "eabd85860f9d2ab02ce41f7c179fbb9d"
+    "url": "/_nuxt/252fcd876bb294956d82.js",
+    "revision": "474c061a79ed021f1e332d69cddc8cc4"
   },
   {
-    "url": "/_nuxt/370c4d9d919ec1c2e279.js",
-    "revision": "57c8ed8349dd07d2cf2318b0bd93a15b"
+    "url": "/_nuxt/31c8e36669fc868b60e4.js",
+    "revision": "0ed8d7eb963db9fdbe2c24af3a774641"
   },
   {
-    "url": "/_nuxt/3f433dd7554069a48765.js",
-    "revision": "205eefdcfb0bebb632dbdf549434af9a"
+    "url": "/_nuxt/4cc2807741af518f5930.js",
+    "revision": "947d2f75fd846d496b97baabbebbb7dc"
   },
   {
-    "url": "/_nuxt/505762fac4fc60474361.js",
-    "revision": "f692e6d07736dc9801283717fe7ead8d"
+    "url": "/_nuxt/a910adbe7874664bee75.js",
+    "revision": "9e223bb242949e6bab0228881808c8b9"
   },
   {
-    "url": "/_nuxt/69deadaad3e7055d49d7.js",
-    "revision": "59563f134b855fb13db6089cd93d8fc8"
+    "url": "/_nuxt/c7b659b1252a8397b300.js",
+    "revision": "b82eded6f3f330e482b6d0fab2f7a179"
   },
   {
-    "url": "/_nuxt/9d8750959c23312b1d2a.js",
-    "revision": "1078042f35d11857c385b6ba459ac6d8"
+    "url": "/_nuxt/eb9d430e4c12cf636187.js",
+    "revision": "4a40f278b8bb5bd77f26027cbf2e5d76"
   },
   {
-    "url": "/_nuxt/a9469536c1eebdd25278.js",
-    "revision": "aa2720af3723be1bf2ebe6bf94427f4f"
+    "url": "/_nuxt/fb2450d716c1010bddb8.js",
+    "revision": "9b367db45dafa196572ed6ade8a6a6d3"
   },
   {
-    "url": "/_nuxt/b67572d02e5ff6bdc04b.js",
-    "revision": "1e5ee854be838dfa8816689d501232a9"
-  },
-  {
-    "url": "/_nuxt/d40ce58e4f6df671f65e.js",
-    "revision": "bc79c36ad7457747e173f7d6c7da7705"
+    "url": "/_nuxt/fc758371dd1cdac0bbe4.js",
+    "revision": "c748de4d436a66199d876f7e3977836a"
   }
 ], {
   "cacheId": "nuxt-template",
