@@ -25,4 +25,13 @@ Vue.component('PrismicPreview', PrismicPreview)
   and render each out appropriately, according to each slice's mapped Vue component
  */
 import SliceLoader from '~/components/prismic/SliceLoader.vue'
+
 Vue.component('SliceLoader', SliceLoader)
+
+/*
+  Thor Logo
+  Just an SVG Logo
+*/
+
+import thorLogo from '~/components/utility/thor-logo'
+Vue.component('thorLogo', thorLogo)

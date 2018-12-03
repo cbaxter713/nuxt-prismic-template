@@ -14,11 +14,9 @@ html, body {
 }
 
 main {
-  background-color: #000;
-  padding-top: 70px;
+  padding-top: $header-height;
   width: 100%;
   min-height: 100vh;
-  color: #fff;
   font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: flex;
 }
