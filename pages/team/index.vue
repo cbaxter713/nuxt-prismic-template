@@ -4,7 +4,7 @@
       {{$prismic.dom.RichText.asText(entry.title)}}
     </h1>
     <section class="team-member-grid">
-      <nuxt-link v-for="member in entry.team_members" :to="`/team/${member.team_member_list.slug}`" class="team-member" :key="member.team_member_list.slug">
+      <nuxt-link v-for="member in entry.team_members" :to="`/team/${member.team_member_list.uid}`" class="team-member" :key="member.team_member_list.slug">
         <img :src="member.team_member_list.data.image.url" />
         <h3>{{$prismic.dom.RichText.asText(member.team_member_list.data.name)}}</h3>
         <p>{{member.team_member_list.data.title}}</p>
