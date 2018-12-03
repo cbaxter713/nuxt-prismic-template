@@ -70,7 +70,7 @@ module.exports = {
       endpoint: 'https://vue-demo.cdn.prismic.io/api/v2',
       linkResolver: function (doc) {
         if (doc.isBroken) { return '/not-found' }
-        if (doc.type === 'home_page') { return '/' }
+        if (doc.type === 'content_page') { return doc.uid === 'home-page' ? '/' : `/content/${doc.uid}` }
         if (doc.type === 'team_page') { return '/team' }
         if (doc.type === 'team_member') { return '/team/' + doc.uid }
         return '/'
