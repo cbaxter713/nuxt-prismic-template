@@ -1,7 +1,7 @@
 <template>
     <div>
         <prismic-preview :documentId="documentId">
-            <hero-video v-if="contentData.bannerType === 'video'"
+            <hero-video v-if="contentData.banner_type === 'video'"
                         :title="contentData.title"
                         :subtitle="contentData.subtitle"
                         :videoUrl="contentData.hero_video.url"
