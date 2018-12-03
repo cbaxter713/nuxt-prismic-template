@@ -10,7 +10,9 @@
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
     "deploy:heroku": "git push heroku master",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "styleguide": "vue-styleguidist server",
+    "styleguide:build": "vue-styleguidist build"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
@@ -28,11 +30,19 @@
     "prismic-javascript": "^1.5.0-beta.1",
     "prismic-nuxt": "^0.1.2",
     "prismic-toolbar": "^0.0.8",
+    "vue-styleguidist": "^2.0.2",
+    "vue-webpack-loaders": "^1.0.8",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "css-loader": "^1.0.1",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.7",
-    "sass-loader": "^6.0.7"
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.23.1",
+    "vue-loader": "^15.4.2"
   }
 }
