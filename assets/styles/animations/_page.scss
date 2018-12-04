@@ -1,8 +1,6 @@
 .fade-enter-active,
 .fade-leave-active {
-  transition-duration: 0.3s;
-  transition-property: opacity;
-  transition-timing-function: ease;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .fade-enter,
@@ -11,7 +9,7 @@
 }
 
 .page-enter-active, .page-leave-active {
-  transition: opacity .35s;
+  transition: opacity .35s ease-out;
 }
 .page-enter, .page-leave-to {
   opacity: 0;
