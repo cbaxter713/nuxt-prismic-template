@@ -11,6 +11,10 @@
 <script>
   export default {
     name: "error",
+    transition: {
+      name: 'page',
+      mode: 'out-in'
+    },
     props: ['error']
   }
 </script>
