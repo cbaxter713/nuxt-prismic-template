@@ -32,7 +32,7 @@
         return this.footerLinks ? this.footerLinks.data.nav : null
       }
     },
-    beforeCreate() {
+    beforeMount() {
       //Register service worker globally
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
