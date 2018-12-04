@@ -6,9 +6,9 @@
     <div class="callout-content">
       <h2 class="title">{{$prismic.dom.RichText.asText(fields.callout_title)}}</h2>
       <h5 class="subtitle">{{fields.callout_subtitle}}</h5>
-      <router-link :to="fields.button_url">
+      <prismic-link :link="fields.button_url">
         <a href="#" id="myButton" class="btn">{{fields.button_label}}</a>
-      </router-link>
+      </prismic-link>
     </div>
   </section>
 </template>
