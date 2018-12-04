@@ -14,7 +14,7 @@ dist
 .idea
 
 # Service workers
-sw.*
+static/sw.*
 
 #build
 package-lock.json
