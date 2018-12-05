@@ -22,7 +22,6 @@
 <script>
 import HeroBanner from '../components/banners/HeroBanner.vue';
 import HeroVideo from '../components/banners/HeroVideo.vue';
-import {beforeEnter, enter, leave} from '~/mixins/transitions';
 
 export default {
   head () {
@@ -30,11 +29,7 @@ export default {
       title: this.seoTitle,
       transition: {
         name: 'page',
-        mode: 'out-in',
-        css: false,
-        beforeEnter,
-        enter,
-        leave
+        mode: 'out-in'
       },
       meta: [
         { hid: 'description', name: 'description', content: this.seoDesc },

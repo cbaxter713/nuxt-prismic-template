@@ -14,17 +14,11 @@
 </template>
 
 <script>
-  import {beforeEnter, enter, leave} from '~/mixins/transitions'
-
   export default {
     name: "Team",
     transition: {
       name: 'page',
-      mode: 'out-in',
-      css: false,
-      beforeEnter,
-      enter,
-      leave
+      mode: 'out-in'
     },
     async asyncData ({ app, params, error, store }) {
       try {
