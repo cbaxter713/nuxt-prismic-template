@@ -9,10 +9,7 @@
     name: "TextBlock",
     props: [
       'fields'
-    ],
-    mounted() {
-      console.log('text, ', this.fields);
-    }
+    ]
   }
 </script>
 
