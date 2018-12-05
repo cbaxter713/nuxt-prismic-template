@@ -33,6 +33,7 @@ module.exports = {
     ],
     link: [
       { hid: 'image_src', rel: 'image_src', href: img },
+      { rel: 'stylesheet',  href: 'https://fonts.googleapis.com/css?family=Montserrat:200,400,700,800' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },

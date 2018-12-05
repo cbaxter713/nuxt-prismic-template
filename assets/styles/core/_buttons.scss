@@ -4,4 +4,8 @@
     text-transform: uppercase;
     color: #fff;
     display: inline-block;
+
+    &:hover {
+        background-color: darken($color-primary, 10%);
+    }
 }
