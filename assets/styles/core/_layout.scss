@@ -1,6 +1,8 @@
 html, body {
   font-size: $font-size-base;
+  line-height: $line-height-base;
 }
+
 
 .container {
   padding: 0 $gutter;
@@ -17,6 +19,6 @@ main {
   padding-top: $header-height;
   width: 100%;
   min-height: 100vh;
-  font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: flex;
+  font-family: $font-family-base;
 }

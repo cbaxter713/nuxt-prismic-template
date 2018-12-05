@@ -17,13 +17,14 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .footer {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    background-color: gray;
+    background-color: $color-primary;
     color: #fff;
+
     padding: 60px 20px;
   }
 

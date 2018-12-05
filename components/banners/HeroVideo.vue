@@ -4,9 +4,9 @@
       <h1 class="title">
         {{ title }}
       </h1>
-      <h3>
+      <p class="large">
         {{ subtitle }}
-      </h3>
+      </p>
     </div>
     <video class="video-src" autoplay="autoplay"
            loop="loop" muted="muted"
