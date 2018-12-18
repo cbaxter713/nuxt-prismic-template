@@ -94,7 +94,5 @@
 </script>
 
 <style scoped lang="scss">
-    .content-body {
-        margin-top: 30px;
-    }
+
 </style>
