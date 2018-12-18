@@ -28,7 +28,7 @@
     height: $header-height;
     padding: $margin-base 0;
     text-align: center;
-    background-color: #fff;
+    background-color: $color-primary;
   }
 
   .logo-link {
@@ -43,6 +43,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+  }
+
+  a {
+    color: #fff;
   }
 
   header.fixed {
