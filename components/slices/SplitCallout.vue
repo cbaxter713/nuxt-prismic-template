@@ -28,6 +28,8 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../../assets/styles/global.scss";
+
   .split-callout {
     display: flex;
     height: 32vw;

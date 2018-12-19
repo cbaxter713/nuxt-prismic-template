@@ -65,17 +65,7 @@ module.exports = {
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
     //'bootstrap-vue/nuxt',
-    '@nuxtjs/pwa',
-    ['prismic-nuxt', {
-      endpoint: 'https://vue-demo.cdn.prismic.io/api/v2',
-      linkResolver: function (doc) {
-        if (doc.isBroken) { return '/not-found' }
-        if (doc.type === 'home_page') { return '/' }
-        if (doc.type === 'team_page') { return '/team' }
-        if (doc.type === 'team_member') { return '/team/' + doc.uid }
-        return '/'
-      }
-    }]
+    '@nuxtjs/pwa'
   ],
   /*
   ** Axios module configuration

@@ -11,8 +11,8 @@
     "generate": "nuxt generate",
     "deploy:heroku": "git push heroku master",
     "heroku-postbuild": "npm run build",
-    "styleguide": "vue-styleguidist server",
-    "styleguide:build": "vue-styleguidist build"
+    "styleguide": "vue-styleguidist server --config styleguide.config.js",
+    "styleguide:build": "vue-styleguidist build --config styleguide.config.js"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
@@ -22,6 +22,7 @@
     "bootstrap-vue": "^2.0.0-beta",
     "cross-env": "^5.2.0",
     "express": "^4.16.3",
+    "extract-text-webpack-plugin": "^3.0.2",
     "gsap": "^1.20.3",
     "js-cookie": "^2.2.0",
     "nuxt": "^2.3.4",
@@ -30,19 +31,21 @@
     "prismic-javascript": "^1.5.0-beta.1",
     "prismic-nuxt": "^0.1.2",
     "prismic-toolbar": "^0.0.8",
-    "vue-styleguidist": "^2.0.2",
-    "vue-webpack-loaders": "^1.0.8",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
     "@babel/preset-env": "^7.1.6",
-    "@babel/preset-react": "^7.0.0",
-    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
     "node-sass": "^4.11.0",
     "nodemon": "^1.18.7",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.23.1",
-    "vue-loader": "^15.4.2"
+    "vue-loader": "^15.4.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-styleguidist": "^2.0.2",
+    "webpack": "^4.28.0",
+    "webpack-merge": "^4.1.2"
   }
 }

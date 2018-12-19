@@ -2,7 +2,7 @@
   <header class="header" :class="{'fixed': fixed}">
     <div class="header-content container">
       <nuxt-link to="/">
-        <img class="header-logo" src="@/assets/img/thor-logo.png" />
+
       </nuxt-link>
       <nav>
         <div class="navbar-item" v-for="(link, index) in headerLinks" :key="index">
@@ -26,7 +26,9 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
+  @import "../../assets/styles/global.scss";
+
   header {
     height: $header-height;
     padding: 10px 0;

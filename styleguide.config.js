@@ -1,16 +1,12 @@
-const { resolve } = require('path');
-const rules = require('vue-webpack-loaders');
+const path = require('path');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   components: 'components/**/[A-Z]*.vue',
+  ignore: ['components/prismic/**/*.vue'],
+  defaultExample: true,
+  require: [path.join(__dirname, './assets/styles/variables/variables.scss')],
   webpackConfig: {
-    resolve: {
-      extensions: ['.js', '.vue'],
-      alias: {
-        '~': resolve(__dirname, '/'),
-        '@': resolve(__dirname, '/'),
-      },
-    },
     module: {
       rules: [
         {
@@ -18,14 +14,14 @@ module.exports = {
           loader: 'vue-loader',
           options: {
             loaders: {
-              scss: [
+              sass: [
                 'vue-style-loader',
                 'css-loader',
                 {
                   loader: 'sass-loader',
                   options: {
-                    includePaths: ['./assets/styles'],
-                    data: '@import "global.scss";',
+                    includePaths: ['./assets/styles/variables'],
+                    data: '@import "variables.scss";',
                     outputStyle: 'compressed',
                   },
                 },
@@ -43,8 +39,9 @@ module.exports = {
           loader: 'style-loader!css-loader!sass-loader',
         },
       ],
-    }
+    },
+    plugins: [new VueLoaderPlugin()],
   },
-  showUsage: true,
-  vuex: './store/index',
+  usageMode: 'expand',
+  exampleMode: 'expand',
 };
