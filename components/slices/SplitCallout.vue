@@ -3,18 +3,20 @@
     <div class="callout-image">
       <img :src="fields.callout_image.url" />
     </div>
-    <div class="callout-content">
-      <h2 class="title">{{$prismic.dom.RichText.asText(fields.callout_title)}}</h2>
-      <h5 class="subtitle">{{fields.callout_subtitle}}</h5>
-      <prismic-link :link="fields.button_url">
-        <span class="btn">{{fields.button_label}}</span>
-      </prismic-link>
-    </div>
+    <banner-content
+      :title="$prismic.dom.RichText.asText(fields.callout_title)"
+      :content="fields.callout_content"
+      :link="fields.button_url"
+      :link_text="fields.button_label">
+    </banner-content>
   </section>
 </template>
 
 <script>
+  import BannerContent from "../banners/BannerContent";
+
   export default {
+    components: {BannerContent},
     name: "split-callout",
     data() {
       return {
@@ -42,16 +44,6 @@
     height: 100%;
     object-fit: cover;
   }
-
-  .callout-content {
-    width: 50%;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
-
 
 
   .image-right .callout-image {

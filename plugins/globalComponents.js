@@ -29,9 +29,9 @@ import SliceLoader from '~/components/prismic/SliceLoader.vue'
 Vue.component('SliceLoader', SliceLoader)
 
 /*
-  Thor Logo
+  Site Logo
   Just an SVG Logo
 */
 
-import thorLogo from '~/components/utility/thor-logo'
-Vue.component('thorLogo', thorLogo)
+import siteLogo from '~/components/utility/site-logo'
+Vue.component('siteLogo', siteLogo)

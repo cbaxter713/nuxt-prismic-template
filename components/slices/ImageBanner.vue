@@ -1,51 +1,47 @@
 <template>
-  <section class="hero-banner">
+  <section class="image-banner" :class="{
+    'align-right': fields.banner_alignment === 'right',
+    'align-left': fields.banner_alignment === 'left',
+    'align-center': fields.banner_alignment === 'center',
+    'theme-light': fields.banner_theme === 'light',
+    'theme-dark': fields.banner_theme === 'dark'
+  }">
     <banner-content
-                :title="title"
-                :content="subtitle">
+      :title="fields.banner_title[0].text"
+      :content="fields.banner_content">
     </banner-content>
     <picture-component
-      :desktopUrl="desktopUrl"
-      :mobileUrl="mobileUrl"
-      :imageAlt="imageAlt"
-      >
+      :desktopUrl="fields.banner_image.url"
+      :mobileUrl="fields.banner_image.Mobile.url"
+      :imageAlt="fields.banner_image.alt"
+    >
     </picture-component>
   </section>
 </template>
 
 <script>
 
-  import BannerContent from './BannerContent.vue';
+  import BannerContent from "../banners/BannerContent";
   import PictureComponent from "../utility/PictureComponent";
 
   export default {
     components: {
       PictureComponent,
-      BannerContent
-    },
-    name: "hero-banner",
+      BannerContent},
+    name: "image-banner",
     data() {
       return {
+       // title: "color-quote"
       }
     },
     props: {
-      title: String,
-      subtitle: String,
-      desktopUrl: String,
-      mobileUrl: String,
-      imageAlt: String,
+      fields: Object
     }
   }
-
-
-
-
 </script>
 
 <style lang="scss">
-  .hero-banner {
-    position: relative;
-    width: 100%;
+  .image-banner {
     position: relative;
 
     img {

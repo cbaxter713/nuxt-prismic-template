@@ -1,6 +1,6 @@
 <template>
     <section class="text-block container">
-        <div class="text-block-content" v-html="$prismic.dom.RichText.asHtml(fields.text)"></div>
+        <div class="text-block-content" v-html="$prismic.asHtml(fields.text)"></div>
     </section>
 </template>
 

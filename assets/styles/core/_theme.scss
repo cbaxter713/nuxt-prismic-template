@@ -1,0 +1,28 @@
+.theme-light {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        color: $color-black;
+    }
+}
+
+.theme-dark {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        color: $color-white;
+    }
+
+    .btn {
+        color: $color-black;
+        background-color: $color-white;
+    }
+}

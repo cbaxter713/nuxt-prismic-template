@@ -3,7 +3,7 @@
         <prismic-preview :documentId="documentId">
             <hero-video v-if="contentData.banner_type === 'video'"
                         :title="contentData.title"
-                        :subtitle="contentData.subtitle"
+                        :content="contentData.subtitle"
                         :videoUrl="contentData.hero_video.url"
                         :poster="contentData.hero_image.url">
             </hero-video>
