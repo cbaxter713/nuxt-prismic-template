@@ -5,7 +5,7 @@
         {{ title }}
       </h1>
       <p class="large">
-        {{ subtitle }}
+        {{ content }}
       </p>
     </div>
     <video class="video-src" autoplay="autoplay"
@@ -27,7 +27,7 @@
       'videoUrl',
       'poster',
       'title',
-      'subtitle'
+      'content'
     ]
   }
 </script>

@@ -7,8 +7,9 @@
     'theme-dark': fields.banner_theme === 'dark'
   }">
     <banner-content
-      :title="fields.banner_title[0].text"
-      :content="fields.banner_content">
+      :title="fields.banner_title"
+      :content="fields.banner_content"
+      :links="items">
     </banner-content>
     <picture-component
       :desktopUrl="fields.banner_image.url"
@@ -35,7 +36,8 @@
       }
     },
     props: {
-      fields: Object
+      fields: Object,
+      items: Array
     }
   }
 </script>

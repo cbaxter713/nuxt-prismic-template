@@ -2,7 +2,7 @@
   <section class="hero-banner">
     <banner-content
                 :title="title"
-                :content="subtitle">
+                :content="content">
     </banner-content>
     <picture-component
       :desktopUrl="desktopUrl"
@@ -24,13 +24,9 @@
       BannerContent
     },
     name: "hero-banner",
-    data() {
-      return {
-      }
-    },
     props: {
-      title: String,
-      subtitle: String,
+      title: Array,
+      content: Array,
       desktopUrl: String,
       mobileUrl: String,
       imageAlt: String,

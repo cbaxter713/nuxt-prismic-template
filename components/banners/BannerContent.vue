@@ -1,14 +1,9 @@
 <template>
   <div class="banner-content">
-    <h1 v-if="title" class="title">
-      {{ title }}
-    </h1>
-    <p v-if="content">
-      {{content[0].text}}
-    </p>
-
-    <prismic-link v-if="link" :link="link">
-      <span class="btn">{{link_text}}</span>
+    <div v-if="title" class="title" v-html="$prismic.asHtml(title)"></div>
+    <div v-if="content" v-html="$prismic.asHtml(content)"></div>
+    <prismic-link v-for="link in links" :link="link.banner_link" :key="link.banner_link_label">
+      <span class="btn">{{link.banner_link_label}}</span>
     </prismic-link>
   </div>
 </template>
@@ -21,10 +16,9 @@
       }
     },
     props: {
-      title: String,
+      title: Array,
       content: Array,
-      link: Object,
-      link_text: String
+      links: Array,
     }
   }
 
