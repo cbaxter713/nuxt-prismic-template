@@ -1,11 +1,13 @@
 <template>
     <picture>
-        <source :srcset="desktopImg" :media="breakpointSize">
+        <source :srcset="desktopImg" :media="breakpointQuery">
         <img :src="mobileImg" :alt="altText" :title="title" />
     </picture>
 </template>
 
 <script>
+  import { breakpointArray, getBreakpointByName } from "../../plugins/mediaQueries";
+
   export default {
     name: "BasePicture",
     props: {
@@ -18,8 +20,11 @@
         required: true
       },
       breakpoint: {
-        type: Number,
-        default: 800
+        type: String,
+        default: 'lg',
+        validator: function (value) {
+          return breakpointArray.indexOf(value) !== -1
+        }
       },
       altText: {
         type: String,
@@ -31,10 +36,10 @@
       }
     },
     computed: {
-      breakpointSize() {
-        return `(min-width: ${this.breakpoint}px)`;
+      breakpointQuery() {
+        return `(min-width: ${getBreakpointByName(this.breakpoint)}px)`;
       }
-    },
+    }
   }
 </script>
 

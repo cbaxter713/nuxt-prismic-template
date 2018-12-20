@@ -11,6 +11,11 @@ export const breakpoints = {
 
 export const breakpointArray = Object.keys(breakpoints);
 
+export function getBreakpointByName(name) {
+  const nameIndex = breakpointArray.indexOf(name);
+  return breakpoints[name] === Infinity ? breakpoints[breakpointArray[nameIndex - 1]] : breakpoints[name]
+}
+
 Vue.use(VueMq, {
   breakpoints
 })
