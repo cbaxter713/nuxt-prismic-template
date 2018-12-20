@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <layout-container>
     <h1 class="title">
       {{$prismic.dom.RichText.asText(entry.title)}}
     </h1>
@@ -10,12 +10,14 @@
         <p>{{member.team_member_list.data.title}}</p>
       </nuxt-link>
     </section>
-  </div>
+  </layout-container>
 </template>
 
 <script>
+  import LayoutContainer from "../../components/layout/LayoutContainer";
   export default {
     name: "Team",
+    components: {LayoutContainer},
     transition: {
       name: 'page',
       mode: 'out-in'

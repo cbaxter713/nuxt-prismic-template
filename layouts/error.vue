@@ -1,16 +1,18 @@
 <template>
-    <div class="error-container container">
+    <layout-container class="error-container">
         <h1 v-if="error.statusCode === 404">Page not found</h1>
         <h1 v-else>An error occurred</h1>
         <nuxt-link to="/" class="reset-button">
             <span class="btn btn-primary">Thor Industries Home</span>
         </nuxt-link>
-    </div>
+    </layout-container>
 </template>
 
 <script>
+  import LayoutContainer from "../components/layout/LayoutContainer";
   export default {
     name: "error",
+    components: {LayoutContainer},
     transition: {
       name: 'page',
       mode: 'out-in'
