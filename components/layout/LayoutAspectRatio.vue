@@ -3,7 +3,7 @@
         <responsive-display :below="breakpoint" :class="aspectRatioClass" :style="aspectRatioStyle">
             <slot></slot>
         </responsive-display>
-        <responsive-display :above="breakpoint" :class="aspectRatioClass" :style="aspectRatioStyleDesktop">
+        <responsive-display :above="aboveBreakpoint" :class="aspectRatioClass" :style="aspectRatioStyleDesktop">
             <slot></slot>
         </responsive-display>
     </div>
@@ -13,7 +13,9 @@
 </template>
 
 <script>
+  import { breakpointArray } from "../../plugins/mediaQueries";
   import ResponsiveDisplay from "../utility/ResponsiveDisplay";
+
   export default {
     name: "LayoutAspectRatio",
     components: {ResponsiveDisplay},
@@ -41,7 +43,7 @@
         type: String,
         default: 'lg',
         validator: function (value) {
-          return ['xs', 'sm', 'md', 'lg', 'xl'].indexOf(value) !== -1
+          return breakpointArray.indexOf(value) !== -1
         }
       }
     },
@@ -51,6 +53,9 @@
       },
       aspectRatioStyleDesktop() {
         return {paddingBottom: `${this.aspectRatio(this.xDesktop, this.yDesktop)}%`}
+      },
+      aboveBreakpoint() {
+        return breakpointArray[breakpointArray.indexOf(this.breakpoint) - 1]
       }
     },
     methods: {

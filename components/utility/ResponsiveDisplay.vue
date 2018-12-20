@@ -5,13 +5,10 @@
 </template>
 
 <script>
+  import { breakpointArray } from "../../plugins/mediaQueries";
+
   export default {
     name: "ResponsiveDisplay",
-    data() {
-      return {
-        mediaQueries: ['xs', 'sm', 'md', 'lg', 'xl']
-      }
-    },
     props: {
       size: {
         type: [String, Array]
@@ -30,9 +27,9 @@
         if (this.size) {
           finalMq = this.size;
         } else if (this.above) {
-          finalMq = this.mediaQueries.filter((val, index) => index > this.mediaQueries.indexOf(this.above));
+          finalMq = breakpointArray.filter((val, index) => index > breakpointArray.indexOf(this.above));
         } else if (this.below) {
-          finalMq = this.mediaQueries.filter((val, index) => index < this.mediaQueries.indexOf(this.below));
+          finalMq = breakpointArray.filter((val, index) => index < breakpointArray.indexOf(this.below));
         }
         return finalMq;
       }
