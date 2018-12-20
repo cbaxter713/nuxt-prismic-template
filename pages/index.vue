@@ -2,14 +2,14 @@
   <div class="wrapper">
     <prismic-preview :documentId="documentId">
       <hero-video v-if="bannerType === 'video'"
-                  :title="$prismic.dom.RichText.asText(title)"
-                  :subtitle="$prismic.dom.RichText.asText(subtitle)"
+                  :title="title"
+                  :subtitle="subtitle"
                   :videoUrl="bannerVideo.url"
                   :poster="bannerDesktop.url">
       </hero-video>
       <hero-banner v-else
-                   :title="$prismic.dom.RichText.asText(title)"
-                   :subtitle="$prismic.dom.RichText.asText(subtitle)"
+                   :title="title"
+                   :subtitle="subtitle"
                    :desktopUrl="bannerDesktop.url"
                    :mobileUrl="bannerMobile.url"
                    :imageAlt="bannerMobile.alt">
@@ -27,6 +27,10 @@ export default {
   head () {
     return {
       title: this.seoTitle,
+      transition: {
+        name: 'page',
+        mode: 'out-in'
+      },
       meta: [
         { hid: 'description', name: 'description', content: this.seoDesc },
         { hid: 'og:url', property: 'og:url', content: this.seoUrl },
@@ -51,7 +55,7 @@ export default {
   },
   async asyncData ({ app, params, error, store }) {
     try {
-      let entry = await store.dispatch('getHomePage');
+      let entry = await store.dispatch('content/getContentDocByUID', 'home-page');
       let data = entry.data;
 
       return {
@@ -60,7 +64,7 @@ export default {
         homeData: data,
         title: data.title,
         subtitle: data.subtitle,
-        bannerType: data.hero_banner_type,
+        bannerType: data.banner_type,
         bannerVideo: data.hero_video,
         bannerDesktop: data.hero_image,
         bannerMobile: data.hero_image.mobile,

@@ -33,6 +33,7 @@ module.exports = {
     ],
     link: [
       { hid: 'image_src', rel: 'image_src', href: img },
+      { rel: 'stylesheet',  href: 'https://fonts.googleapis.com/css?family=Montserrat:200,400,700,800' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
@@ -53,7 +54,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    { src: `~plugins/globalComponents` }
+    '~plugins/globalComponents',
+    '~plugins/mediaQueries'
   ],
 
   /*
@@ -61,11 +63,18 @@ module.exports = {
   */
   modules: [
     ['nuxt-sass-resources-loader', '~assets/styles/variables/variables.scss'],
-    // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    // Doc: https://bootstrap-vue.js.org/docs/
-    //'bootstrap-vue/nuxt',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    ['prismic-nuxt', {
+      endpoint: 'https://vue-demo.cdn.prismic.io/api/v2',
+      linkResolver: function (doc) {
+        if (doc.isBroken) { return '/not-found' }
+        if (doc.type === 'content_page') { return doc.uid === 'home-page' ? '/' : `/content/${doc.uid}` }
+        if (doc.type === 'team_page') { return '/team' }
+        if (doc.type === 'team_member') { return '/team/' + doc.uid }
+        return '/'
+      }
+    }]
   ],
   /*
   ** Axios module configuration

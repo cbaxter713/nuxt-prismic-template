@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <layout-container>
     <router-link to="/team" class="back-link">< Back</router-link>
     <div class="team-member-header">
       <h1 class="title">{{$prismic.dom.RichText.asText(entry.name)}}</h1>
@@ -9,21 +9,17 @@
       <img :src="entry.image.url" />
       <p>{{ $prismic.dom.RichText.asText(entry.profile) }}</p>
     </section>
-  </div>
+  </layout-container>
 </template>
 
 <script>
-  import {beforeEnter, enter, leave} from '~/mixins/transitions'
-
+  import LayoutContainer from "../../components/layout/LayoutContainer";
   export default {
     name: "TeamMember",
+    components: {LayoutContainer},
     transition: {
       name: 'page',
-      mode: 'out-in',
-      css: false,
-      beforeEnter,
-      enter,
-      leave
+      mode: 'out-in'
     },
     async asyncData ({ app, params, error, store }) {
       try {
@@ -40,7 +36,7 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .back-link {
     display: block;
     font-size: 20px;
@@ -58,7 +54,7 @@
 
   .team-member-body {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-column-gap: 20px;
+    /*grid-template-columns: 1fr 2fr;*/
+    /*grid-column-gap: 20px;*/
   }
 </style>

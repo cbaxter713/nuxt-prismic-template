@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app-wrapper">
-    <app-header :headerLinks="headerLinkData" :fixed="true"></app-header>
+    <app-masthead :headerLinks="headerLinkData"  :fixed="true"></app-masthead>
     <main>
       <nuxt/>
     </main>
@@ -10,13 +10,14 @@
 
 <script>
   import { mapGetters } from 'vuex';
-  import AppHeader from '../components/decorator/AppHeader.vue';
+  import AppMasthead from '../components/decorator/AppMasthead.vue';
   import AppFooter from '../components/decorator/AppFooter.vue';
+
 
   export default {
     name: 'BaseLayout',
     components: {
-      AppHeader,
+      AppMasthead,
       AppFooter
     },
     computed: {
@@ -49,7 +50,7 @@
 </script>
 
 <style scoped lang="scss">
-  app-header {
+  app-masthead {
     position: relative;
     z-index: $header-z-index;
   }

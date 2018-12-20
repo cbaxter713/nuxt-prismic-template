@@ -1,30 +1,26 @@
 <template>
-  <div class="container">
+  <layout-container>
     <h1 class="title">
       {{$prismic.dom.RichText.asText(entry.title)}}
     </h1>
     <section class="team-member-grid">
-      <nuxt-link v-for="member in entry.team_members" :to="`/team/${member.team_member_list.slug}`" class="team-member" :key="member.team_member_list.slug">
+      <nuxt-link v-for="member in entry.team_members" :to="`/team/${member.team_member_list.uid}`" class="team-member" :key="member.team_member_list.slug">
         <img :src="member.team_member_list.data.image.url" />
         <h3>{{$prismic.dom.RichText.asText(member.team_member_list.data.name)}}</h3>
         <p>{{member.team_member_list.data.title}}</p>
       </nuxt-link>
     </section>
-  </div>
+  </layout-container>
 </template>
 
 <script>
-  import {beforeEnter, enter, leave} from '~/mixins/transitions'
-
+  import LayoutContainer from "../../components/layout/LayoutContainer";
   export default {
     name: "Team",
+    components: {LayoutContainer},
     transition: {
       name: 'page',
-      mode: 'out-in',
-      css: false,
-      beforeEnter,
-      enter,
-      leave
+      mode: 'out-in'
     },
     async asyncData ({ app, params, error, store }) {
       try {
@@ -40,13 +36,13 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .container {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 40px 10px;
-  }
+     max-width: 1200px;
+     margin-left: auto;
+     margin-right: auto;
+     padding: 40px 10px;
+   }
 
   .title {
     font-size: 32px;
@@ -55,8 +51,8 @@
   .team-member-grid {
     display: grid;
     margin: 30px 0;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-column-gap: 20px;
+    /*grid-template-columns: 1fr 1fr 1fr;*/
+    /*grid-column-gap: 20px;*/
   }
 
   .team-member h3 {

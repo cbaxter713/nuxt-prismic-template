@@ -1,3 +1,15 @@
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5 {
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  line-height: 1.1em;
+}
+
+
 h1, .h1 {
   font-size: $font-size-xxlarge;
 }
@@ -21,8 +33,15 @@ h5, .h5 {
 
 p {
   font-size: $font-size-small;
+  margin-bottom: 1em;
 
   &.large {
     font-size: $font-size-base;
   }
+
+  &.x-large {
+    font-size: $font-size-xlarge;
+  }
+
+
 }

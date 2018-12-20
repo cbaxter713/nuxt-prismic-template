@@ -6,9 +6,9 @@
     <div class="callout-content">
       <h2 class="title">{{$prismic.dom.RichText.asText(fields.callout_title)}}</h2>
       <h5 class="subtitle">{{fields.callout_subtitle}}</h5>
-      <router-link :to="fields.button_url">
-        <button id="myButton" class="button">{{fields.button_label}}</button>
-      </router-link>
+      <prismic-link :link="fields.button_url">
+        <span class="btn">{{fields.button_label}}</span>
+      </prismic-link>
     </div>
   </section>
 </template>
@@ -54,13 +54,7 @@
     justify-content: center;
   }
 
-  button {
-    padding: 10px 20px;
-    background-color: $color-primary;
-    color: white;
-    text-align: center;
-    margin: 20px 0;
-  }
+
 
   .image-right .callout-image {
     order: 2;

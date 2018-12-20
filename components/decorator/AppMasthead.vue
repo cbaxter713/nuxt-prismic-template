@@ -1,28 +1,27 @@
 <template>
-  <header class="header" :class="{'fixed': fixed}">
-    <div class="header-content container">
-      <nuxt-link to="/">
-
+  <header :class="{'fixed': fixed}">
+    <layout-container class="masthead-content">
+      <nuxt-link class="logo-link" to="/">
+        <thor-logo></thor-logo>
       </nuxt-link>
       <nav>
         <div class="navbar-item" v-for="(link, index) in headerLinks" :key="index">
           <prismic-link :link="link.primary.link">{{link.primary.link_label}}</prismic-link>
         </div>
       </nav>
-    </div>
+    </layout-container>
   </header>
 </template>
 
 <script>
+  import LayoutContainer from "../layout/LayoutContainer";
   export default {
-    name: "AppHeader",
+    name: 'AppMasthead',
+    components: {LayoutContainer},
     props: [
-      'headerLinks',
-      'fixed'
+      'fixed',
+      'headerLinks'
     ],
-    mounted() {
-      console.log('headerLinks', this.headerLinks)
-    }
   }
 </script>
 
@@ -31,17 +30,23 @@
 
   header {
     height: $header-height;
-    padding: 10px 0;
-    background: $color-primary;
-    box-shadow: 0px 0px 6px 3px rgba(0, 0, 0, 0.3);
+    padding: $margin-base 0;
+    text-align: center;
+    background-color: #fff;
   }
 
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  .logo-link {
+    width: 200px;
+    display: block;
+    height: 36px;
+  }
+
+  .masthead-content {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
 
   header.fixed {
@@ -56,9 +61,12 @@
     height: 30px;
   }
 
+
   .navbar-item {
     display: inline-block;
     margin: 0 10px;
-    color: white;
+    color: $color-primary;
+    font-size: $font-size-small;
+    text-transform: uppercase;
   }
 </style>

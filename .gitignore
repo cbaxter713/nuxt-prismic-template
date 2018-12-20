@@ -1,0 +1,24 @@
+# Nuxt build
+.nuxt
+
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt generate
+dist
+
+# workspace settings
+.idea
+
+# Service workers
+static/sw.*
+
+#build
+package-lock.json
+
+#config
+app-config.js
+

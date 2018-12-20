@@ -1,24 +1,12 @@
 html, body {
   font-size: $font-size-base;
-}
-
-.container {
-  padding: 0 $gutter;
-  width: 100%;
-  max-width: $container-width;
-  margin: 0 auto;
-
-  @media (min-width: $screen-md-min) {
-    padding: 0 $gutter*2;
-  }
+  line-height: $line-height-base;
 }
 
 main {
-  background-color: #000;
-  padding-top: 70px;
+  padding-top: $header-height;
   width: 100%;
   min-height: 100vh;
-  color: #fff;
-  font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: flex;
+  font-family: $font-family-base;
 }
