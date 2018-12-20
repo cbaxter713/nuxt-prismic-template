@@ -28,7 +28,7 @@
 </script>
 
 <style scoped lang="scss">
-  @import "../../assets/styles/global.scss";
+  //@import "../../assets/styles/global.scss";
 
   .split-callout {
     display: flex;

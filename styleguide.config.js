@@ -5,7 +5,10 @@ module.exports = {
   components: 'components/**/[A-Z]*.vue',
   ignore: ['components/prismic/**/*.vue'],
   defaultExample: true,
-  require: [path.join(__dirname, './assets/styles/variables/variables.scss')],
+  require: [
+    path.join(__dirname, './assets/styles/global.scss'),
+    path.join(__dirname, './assets/styles/variables/variables.scss')
+  ],
   webpackConfig: {
     module: {
       rules: [
@@ -20,8 +23,7 @@ module.exports = {
                 {
                   loader: 'sass-loader',
                   options: {
-                    includePaths: ['./assets/styles/variables'],
-                    data: '@import "variables.scss";',
+                    data: '@import "./assets/styles/variables/variables.scss";',
                     outputStyle: 'compressed',
                   },
                 },
