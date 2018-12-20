@@ -82,6 +82,7 @@
         display: block;
         padding: $input-padding;
         text-transform: uppercase;
+        font-size: $input-font-size;
         color: $color-white;
         cursor: pointer;
         user-select: none;

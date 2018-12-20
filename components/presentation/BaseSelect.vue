@@ -3,10 +3,11 @@
         <label v-if="label" :for="id">{{label}}</label>
         <div class="select-wrapper">
             <select :id="id"
+                    :value="value"
+                    :class="{'input-sm': size === 'sm', 'input-lg': size === 'lg'}"
                     :placeholder="placeholder"
                     :required="required"
-                    :class="{'input-sm': size === 'sm', 'input-lg': size === 'lg'}"
-                    @input="updateValue">
+                    @change="updateValue">
                 <option v-for="option of options"
                         :value="option"
                         :selected="option === value"
@@ -91,7 +92,7 @@
     select {
         display: block;
         appearance: none;
-        font-size: $font-size-base;
+        font-size: $input-font-size;
         padding: $input-padding;
         padding-right: $select-icon-width + 1em;
         border: 1px solid $input-border-color;

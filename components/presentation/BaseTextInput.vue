@@ -67,7 +67,7 @@
 <style scoped lang="scss">
     input {
         display: block;
-        font-size: $font-size-base;
+        font-size: $input-font-size;
         padding: $input-padding;
         border: 1px solid $input-border-color;
         width: 100%;
