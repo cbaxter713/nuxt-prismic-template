@@ -1,6 +1,6 @@
 <template>
   <header :class="{'fixed': fixed}">
-    <div class="masthead-content container">
+    <layout-container class="masthead-content">
       <nuxt-link class="logo-link" to="/">
         <site-logo></site-logo>
       </nuxt-link>
@@ -9,13 +9,15 @@
           <prismic-link :link="link.primary.link">{{link.primary.link_label}}</prismic-link>
         </div>
       </nav>
-    </div>
+    </layout-container>
   </header>
 </template>
 
 <script>
+  import LayoutContainer from "../layout/LayoutContainer";
   export default {
     name: 'AppMasthead',
+    components: {LayoutContainer},
     props: [
       'fixed',
       'headerLinks'

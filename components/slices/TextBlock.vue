@@ -1,12 +1,16 @@
 <template>
-    <section class="text-block container">
-        <div class="text-block-content" v-html="$prismic.asHtml(fields.text)"></div>
+    <section class="text-block">
+        <layout-container content>
+            <div v-html="$prismic.dom.RichText.asHtml(fields.text)"></div>
+        </layout-container>
     </section>
 </template>
 
 <script>
+  import LayoutContainer from "../layout/LayoutContainer";
   export default {
     name: "TextBlock",
+    components: {LayoutContainer},
     props: [
       'fields'
     ]
@@ -17,10 +21,5 @@
     .text-block {
         padding-top: $margin-large;
         padding-bottom: $margin-large;
-    }
-
-    .text-block-content {
-        max-width: $content-width;
-        margin: 0 auto;
     }
 </style>

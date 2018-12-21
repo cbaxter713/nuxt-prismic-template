@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <layout-container>
     <router-link to="/team" class="back-link">< Back</router-link>
     <div class="team-member-header">
       <h1 class="title">{{$prismic.dom.RichText.asText(entry.name)}}</h1>
@@ -9,12 +9,14 @@
       <img :src="entry.image.url" />
       <p>{{ $prismic.dom.RichText.asText(entry.profile) }}</p>
     </section>
-  </div>
+  </layout-container>
 </template>
 
 <script>
+  import LayoutContainer from "../../components/layout/LayoutContainer";
   export default {
     name: "TeamMember",
+    components: {LayoutContainer},
     transition: {
       name: 'page',
       mode: 'out-in'

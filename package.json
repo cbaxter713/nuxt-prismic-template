@@ -28,6 +28,7 @@
     "prismic-javascript": "^1.5.0-beta.1",
     "prismic-nuxt": "^0.2.0",
     "prismic-toolbar": "^0.0.8",
+    "vue-mq": "^1.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
