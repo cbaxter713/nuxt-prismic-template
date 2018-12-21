@@ -1,10 +1,13 @@
 <template>
   <div class="banner-content">
-    <div v-if="title" class="title" v-html="$prismic.asHtml(title)"></div>
-    <div v-if="content" v-html="$prismic.asHtml(content)"></div>
-    <prismic-link v-for="link in links" :link="link.banner_link" :key="link.banner_link_label">
-      <span class="btn">{{link.banner_link_label}}</span>
+    <div v-if="title" class="title" v-html="title"></div>
+    <div v-if="content" v-html="content"></div>
+
+    <div v-if="links">
+    <prismic-link v-for="link in links" class="btn" :link="link.banner_link" :key="link.banner_link_label">
+     {{link.banner_link_label}}
     </prismic-link>
+    </div>
   </div>
 </template>
 
@@ -30,9 +33,20 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 3rem;
     @media (min-width: $screen-sm) {
       max-width: 50%;
+    }
+  }
+
+  .btn {
+    min-width: 14em;
+    width: auto;
+    margin-bottom: 1em;
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 </style>

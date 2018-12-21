@@ -7,9 +7,11 @@
     'theme-dark': fields.banner_theme === 'dark'
   }">
     <banner-content
-      :title="fields.banner_title"
-      :content="fields.banner_content"
-      :links="items">
+      :title="$prismic.asHtml(fields.banner_title)"
+      :content="$prismic.asHtml(fields.banner_content)"
+      :links="items"
+      :alignment="fields.banner_alignment"
+      :theme="fields.banner_theme">
     </banner-content>
     <picture-component
       :desktopUrl="fields.banner_image.url"

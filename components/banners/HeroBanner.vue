@@ -1,8 +1,9 @@
 <template>
   <section class="hero-banner">
     <banner-content
-                :title="title"
-                :content="content">
+                :title="$prismic.asHtml(title)"
+                :content="$prismic.asHtml(content)"
+                class="theme-dark">
     </banner-content>
     <picture-component
       :desktopUrl="desktopUrl"

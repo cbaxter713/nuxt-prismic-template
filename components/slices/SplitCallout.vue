@@ -4,8 +4,8 @@
       <img :src="fields.callout_image.url" />
     </div>
     <banner-content
-      :title="fields.callout_title"
-      :content="fields.callout_content"
+      :title="$prismic.asHtml(fields.callout_title)"
+      :content="$prismic.asHtml(fields.callout_content)"
       :link="fields.button_url"
       :link_text="fields.button_label">
     </banner-content>
