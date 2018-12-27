@@ -1,16 +1,21 @@
 <template>
+    <theme :theme="fields.theme">
     <section class="text-block">
-        <layout-container content>
+        <layout-container content >
             <div v-html="$prismic.asHtml(fields.text)" :class="'columns-'  + fields.layout"></div>
         </layout-container>
     </section>
+    </theme>
 </template>
 
 <script>
   import LayoutContainer from "../layout/LayoutContainer";
+  import Theme from "../utility/Theme";
   export default {
     name: "TextBlock",
-    components: {LayoutContainer},
+    components: {
+      Theme,
+      LayoutContainer},
     props: [
       'fields'
     ]

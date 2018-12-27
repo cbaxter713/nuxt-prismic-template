@@ -92,10 +92,10 @@
 
     }
     .btn-primary {
-        background-color: $color-primary;
+        background-color: $color-black;
 
         &:hover {
-            background-color: darken($color-primary, 10%);
+            background-color: darken($color-black, 10%);
         }
     }
 

@@ -33,5 +33,5 @@ Vue.component('SliceLoader', SliceLoader)
   Just an SVG Logo
 */
 
-import siteLogo from '~/components/utility/site-logo'
-Vue.component('siteLogo', siteLogo)
+import SiteLogo from '~/components/utility/SiteLogo'
+Vue.component('SiteLogo', SiteLogo)
