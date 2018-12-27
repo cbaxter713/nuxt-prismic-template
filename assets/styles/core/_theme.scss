@@ -21,8 +21,14 @@
         color: $color-white;
     }
 
-    .btn {
+    .btn,
+    .btn.btn-primary {
         color: $color-black;
         background-color: $color-white;
+        &:hover {
+            background-color: $gray-lightest;
+        }
     }
+
+
 }

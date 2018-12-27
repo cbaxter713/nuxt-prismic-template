@@ -31,26 +31,36 @@
 
 <style scoped lang="scss">
   .split-callout {
-    display: flex;
-    height: 32vw;
+
+    @media (min-width: $screen-sm) {
+      display: flex;
+      height: 32vw;
+    }
   }
 
   .callout-image {
-    width: 50%;
+    @media (min-width: $screen-sm) {
+      width: 50%;
+    }
   }
 
   .callout-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    @media (min-width: $screen-sm) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 
-
   .image-right .callout-image {
-    order: 2;
+    @media (min-width: $screen-sm) {
+      order: 2;
+    }
   }
 
   .image-right .callout-content {
-    order: 1;
+    @media (min-width: $screen-sm) {
+      order: 1;
+    }
   }
 </style>

@@ -21,7 +21,7 @@
       },
       breakpoint: {
         type: String,
-        default: 'lg',
+        default: 'sm',
         validator: function (value) {
           return breakpointArray.indexOf(value) !== -1
         }

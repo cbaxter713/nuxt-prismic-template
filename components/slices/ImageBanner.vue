@@ -1,11 +1,5 @@
 <template>
-  <section class="image-banner" :class="{
-    'align-right': fields.banner_alignment === 'right',
-    'align-left': fields.banner_alignment === 'left',
-    'align-center': fields.banner_alignment === 'center',
-    'theme-light': fields.banner_theme === 'light',
-    'theme-dark': fields.banner_theme === 'dark'
-  }">
+  <section class="image-banner">
     <banner-content
       :title="$prismic.asHtml(fields.banner_title)"
       :content="$prismic.asHtml(fields.banner_content)"
@@ -13,23 +7,23 @@
       :alignment="fields.banner_alignment"
       :theme="fields.banner_theme">
     </banner-content>
-    <picture-component
-      :desktopUrl="fields.banner_image.url"
-      :mobileUrl="fields.banner_image.Mobile.url"
-      :imageAlt="fields.banner_image.alt"
+    <base-picture
+      :desktopImg="fields.banner_image.url"
+      :mobileImg="fields.banner_image.Mobile.url"
+      :altText="fields.banner_image.alt ? fields.banner_image.alt : $prismic.asText(fields.banner_title)"
     >
-    </picture-component>
+    </base-picture>
   </section>
 </template>
 
 <script>
 
   import BannerContent from "../banners/BannerContent";
-  import PictureComponent from "../utility/PictureComponent";
+  import BasePicture from "../base/BasePicture";
 
   export default {
     components: {
-      PictureComponent,
+      BasePicture,
       BannerContent},
     name: "image-banner",
     data() {
@@ -57,22 +51,6 @@
     .banner-content {
       z-index: $z-index-level-page + 1;
       position: absolute;
-    }
-
-    &.align-left .banner-content {
-      left: 0;
-      right: auto;
-    }
-
-    &.align-right .banner-content {
-      right: 0;
-      left: auto;
-    }
-
-    &.align-center .banner-content {
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
     }
   }
 </style>
