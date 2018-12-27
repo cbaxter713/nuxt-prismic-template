@@ -1,10 +1,11 @@
 <template>
-  <div class="banner-content" :class="[alignment, 'theme-' + theme]">
+  <div class="banner-content" :class="alignment">
     <div v-if="title" class="title" v-html="title"></div>
     <div v-if="content" v-html="content"></div>
 
     <div v-if="links">
       <prismic-link
+        class="banner-content-link"
         v-for="link in links"
         :key="link.banner_link_label"
         :link="link.banner_link"
@@ -73,10 +74,12 @@
 
   }
 
-  .btn {
+
+  .banner-content-link {
     min-width: 14em;
     width: auto;
     margin-bottom: 1em;
+    display: block;
 
     &:last-child {
       margin-bottom: 0;

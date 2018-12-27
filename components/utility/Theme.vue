@@ -20,7 +20,7 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   .theme-dark,
   .theme-primary {
     color: $color-white;
@@ -31,6 +31,15 @@
     h5,
     h6 {
       color: $color-white;
+    }
+
+    .btn-primary {
+      background: $color-white;
+      color: $color-black;
+
+      &:hover {
+        background-color: $gray-lightest;
+      }
     }
   }
 
