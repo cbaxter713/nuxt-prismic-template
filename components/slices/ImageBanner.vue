@@ -2,13 +2,13 @@
 
   <section class="image-banner">
     <theme :theme="fields.banner_theme">
-      <banner-content
+      <callout-content
         :title="$prismic.asHtml(fields.banner_title)"
         :content="$prismic.asHtml(fields.banner_content)"
         :links="items"
         :alignment="fields.banner_alignment"
       >
-      </banner-content>
+      </callout-content>
       <base-picture
         :desktopImg="fields.banner_image.url"
         :mobileImg="fields.banner_image.Mobile.url"
@@ -22,7 +22,7 @@
 
 <script>
 
-  import BannerContent from "../banners/BannerContent";
+  import CalloutContent from "../utility/CalloutContent";
   import BasePicture from "../base/BasePicture";
   import Theme from "../utility/Theme";
 
@@ -30,7 +30,7 @@
     components: {
       Theme,
       BasePicture,
-      BannerContent
+      CalloutContent
     },
     name: "image-banner",
     data() {
@@ -55,7 +55,7 @@
       display: block;
     }
 
-    .banner-content {
+    .callout-content {
       z-index: $z-index-level-page + 1;
       position: absolute;
     }

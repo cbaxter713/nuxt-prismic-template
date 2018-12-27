@@ -1,28 +1,33 @@
 <template>
   <section class="hero-banner">
-    <banner-content
+    <theme :theme="'dark'">
+    <callout-content
                 :title="$prismic.asHtml(title)"
                 :content="$prismic.asHtml(content)"
-                class="theme-dark">
-    </banner-content>
-    <picture-component
-      :desktopUrl="desktopUrl"
-      :mobileUrl="mobileUrl"
-      :imageAlt="imageAlt"
-      >
-    </picture-component>
+                >
+    </callout-content>
+      <base-picture
+        :desktopImg="desktopUrl"
+        :mobileImg="mobileUrl"
+        :altText="imageAlt ? imageAlt : $prismic.asText(title)"
+      ></base-picture>
+    </theme>
   </section>
 </template>
 
 <script>
 
-  import BannerContent from './BannerContent.vue';
+  import CalloutContent from '../utility/CalloutContent.vue';
   import PictureComponent from "../utility/PictureComponent";
+  import Theme from "../utility/Theme";
+  import BasePicture from "../base/BasePicture";
 
   export default {
     components: {
+      BasePicture,
+      Theme,
       PictureComponent,
-      BannerContent
+      CalloutContent
     },
     name: "hero-banner",
     props: {
@@ -39,7 +44,7 @@
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   .hero-banner {
     position: relative;
     width: 100%;
@@ -51,25 +56,9 @@
       display: block;
     }
 
-    .banner-content {
+    .callout-content {
       z-index: $z-index-level-page + 1;
       position: absolute;
-    }
-
-    &.align-left .banner-content {
-      left: 0;
-      right: auto;
-    }
-
-    &.align-right .banner-content {
-      right: 0;
-      left: auto;
-    }
-
-    &.align-center .banner-content {
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
     }
   }
 </style>

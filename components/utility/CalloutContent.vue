@@ -1,11 +1,10 @@
 <template>
-  <div class="banner-content" :class="alignment">
+  <div class="callout-content" :class="alignment">
     <div v-if="title" class="title" v-html="title"></div>
     <div v-if="content" v-html="content"></div>
-
     <div v-if="links">
       <prismic-link
-        class="banner-content-link"
+        class="callout-content-link"
         v-for="link in links"
         :key="link.banner_link_label"
         :link="link.banner_link"
@@ -23,7 +22,7 @@
 
   export default {
     components: {BaseButton},
-    name: "banner-content",
+    name: "callout-content",
     data() {
       return {}
     },
@@ -39,7 +38,7 @@
 </script>
 
 <style scoped lang="scss">
-  .banner-content {
+  .callout-content {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -71,11 +70,9 @@
         left: auto;
       }
     }
-
   }
 
-
-  .banner-content-link {
+  .callout-content-link {
     min-width: 14em;
     width: auto;
     margin-bottom: 1em;

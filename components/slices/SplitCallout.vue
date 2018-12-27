@@ -4,24 +4,24 @@
       <div class="callout-image">
         <img :src="fields.callout_image.url"/>
       </div>
-      <banner-content
+      <callout-content
         :title="$prismic.asHtml(fields.callout_title)"
         :content="$prismic.asHtml(fields.callout_content)"
         :link="fields.button_url"
         :link_text="fields.button_label">
-      </banner-content>
+      </callout-content>
     </section>
   </theme>
 </template>
 
 <script>
-  import BannerContent from "../banners/BannerContent";
+  import CalloutContent from "../utility/CalloutContent";
   import Theme from "../utility/Theme";
 
   export default {
     components: {
       Theme,
-      BannerContent
+      CalloutContent
     },
     name: "split-callout",
     data() {
