@@ -47,4 +47,8 @@
     picture {
         width: 100%;
     }
+
+    img {
+        display: block;
+    }
 </style>
