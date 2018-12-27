@@ -8,7 +8,14 @@
   export default {
     name: "Theme",
     props: {
-      theme: String
+      theme: {
+        type: String,
+        default: 'light',
+        validator: function (value) {
+          return ['light', 'dark', 'primary'].indexOf(value) !== -1
+        }
+      },
+
     }
   }
 </script>
@@ -34,8 +41,4 @@
   .theme-primary {
     background-color: $color-primary;
   }
-
-
-
-
 </style>

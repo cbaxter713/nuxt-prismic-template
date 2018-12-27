@@ -4,12 +4,15 @@
     <div v-if="content" v-html="content"></div>
 
     <div v-if="links">
-      <base-button
+      <prismic-link
         v-for="link in links"
         :key="link.banner_link_label"
         :link="link.banner_link"
-        :label="link.banner_link_label"
-      ></base-button>
+        >
+        <base-button
+          :label="link.banner_link_label"
+        ></base-button>
+      </prismic-link>
     </div>
   </div>
 </template>
@@ -21,8 +24,7 @@
     components: {BaseButton},
     name: "banner-content",
     data() {
-      return {
-      }
+      return {}
     },
     props: {
       alignment: String,
@@ -70,9 +72,6 @@
     }
 
   }
-
-
-
 
   .btn {
     min-width: 14em;

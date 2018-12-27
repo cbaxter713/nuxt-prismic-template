@@ -88,9 +88,8 @@
         user-select: none;
         width: $input-default-width;
         text-align: center;
-
-
     }
+
     .btn-primary {
         background-color: $color-black;
 

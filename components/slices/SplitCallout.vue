@@ -1,22 +1,28 @@
 <template>
-  <section class="split-callout" :class="{'image-right': fields.image_alignment === 'right'}">
-    <div class="callout-image">
-      <img :src="fields.callout_image.url" />
-    </div>
-    <banner-content
-      :title="$prismic.asHtml(fields.callout_title)"
-      :content="$prismic.asHtml(fields.callout_content)"
-      :link="fields.button_url"
-      :link_text="fields.button_label">
-    </banner-content>
-  </section>
+  <theme :theme="fields.theme">
+    <section class="split-callout" :class="{'image-right': fields.image_alignment === 'right'}">
+      <div class="callout-image">
+        <img :src="fields.callout_image.url"/>
+      </div>
+      <banner-content
+        :title="$prismic.asHtml(fields.callout_title)"
+        :content="$prismic.asHtml(fields.callout_content)"
+        :link="fields.button_url"
+        :link_text="fields.button_label">
+      </banner-content>
+    </section>
+  </theme>
 </template>
 
 <script>
   import BannerContent from "../banners/BannerContent";
+  import Theme from "../utility/Theme";
 
   export default {
-    components: {BannerContent},
+    components: {
+      Theme,
+      BannerContent
+    },
     name: "split-callout",
     data() {
       return {
