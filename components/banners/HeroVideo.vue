@@ -1,11 +1,11 @@
 <template>
   <section class="hero-video">
-    <div class="banner-content">
+    <div class="callout-content">
       <h1 class="title">
         {{ title }}
       </h1>
       <p class="large">
-        {{ subtitle }}
+        {{ content }}
       </p>
     </div>
     <video class="video-src" autoplay="autoplay"
@@ -27,7 +27,7 @@
       'videoUrl',
       'poster',
       'title',
-      'subtitle'
+      'content'
     ]
   }
 </script>
@@ -38,7 +38,7 @@
     width: 100%;
   }
 
-  .banner-content {
+  .callout-content {
     position: absolute;
     top: 50%;
     left: 15%;
@@ -50,5 +50,6 @@
   .video-src {
     width: 100%;
     height: 100%;
+    display: block;
   }
 </style>

@@ -1,20 +1,28 @@
 <template>
-  <section class="split-callout" :class="{'image-right': fields.image_alignment === 'right'}">
-    <div class="callout-image">
-      <img :src="fields.callout_image.url" />
-    </div>
-    <div class="callout-content">
-      <h2 class="title">{{$prismic.dom.RichText.asText(fields.callout_title)}}</h2>
-      <h5 class="subtitle">{{fields.callout_subtitle}}</h5>
-      <prismic-link :link="fields.button_url">
-        <span class="btn">{{fields.button_label}}</span>
-      </prismic-link>
-    </div>
-  </section>
+  <theme :theme="fields.theme">
+    <section class="split-callout" :class="{'image-right': fields.image_alignment === 'right'}">
+      <div class="callout-image">
+        <img :src="fields.callout_image.url"/>
+      </div>
+      <callout-content
+        :title="$prismic.asHtml(fields.callout_title)"
+        :content="$prismic.asHtml(fields.callout_content)"
+        :link="fields.button_url"
+        :link_text="fields.button_label">
+      </callout-content>
+    </section>
+  </theme>
 </template>
 
 <script>
+  import CalloutContent from "../utility/CalloutContent";
+  import Theme from "../utility/Theme";
+
   export default {
+    components: {
+      Theme,
+      CalloutContent
+    },
     name: "split-callout",
     data() {
       return {
@@ -31,36 +39,36 @@
   //@import "../../assets/styles/global.scss";
 
   .split-callout {
-    display: flex;
-    height: 32vw;
+
+    @media (min-width: $screen-sm) {
+      display: flex;
+      height: 32vw;
+    }
   }
 
   .callout-image {
-    width: 50%;
+    @media (min-width: $screen-sm) {
+      width: 50%;
+    }
   }
 
   .callout-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    @media (min-width: $screen-sm) {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
-
-  .callout-content {
-    width: 50%;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
-
-
 
   .image-right .callout-image {
-    order: 2;
+    @media (min-width: $screen-sm) {
+      order: 2;
+    }
   }
 
   .image-right .callout-content {
-    order: 1;
+    @media (min-width: $screen-sm) {
+      order: 1;
+    }
   }
 </style>

@@ -126,67 +126,67 @@
         user-select: none;
         width: $input-default-width;
         text-align: center;
+    }
 
-        &.btn-primary {
-            background: $color-primary;
+    .btn-primary {
+        background-color: $color-black;
 
-            &:hover {
-                background-color: darken($color-primary, 10%);
-            }
+        &:hover {
+            background-color: darken($color-black, 10%);
         }
+    }
 
-        &.btn-secondary {
-            background: $color-secondary;
+    .btn-secondary {
+        background-color: $color-secondary;
 
-            &:hover {
-                background-color: darken($color-secondary, 10%);
-            }
+        &:hover {
+            background-color: darken($color-secondary, 10%);
         }
+    }
 
-        &.btn-info {
-            background: $color-info;
+    .btn-info {
+        background-color: $color-info;
 
-            &:hover {
-                background-color: darken($color-info, 10%);
-            }
+        &:hover {
+            background-color: darken($color-info, 10%);
         }
+    }
 
-        &.btn-warning {
-            background: $color-warning;
+    .btn-warning {
+        background-color: $color-warning;
 
-            &:hover {
-                background-color: darken($color-warning, 10%);
-            }
+        &:hover {
+            background-color: darken($color-warning, 10%);
         }
+    }
 
-        &.btn-neutral {
-            background: $gray;
+    .btn-neutral {
+        background-color: $gray;
 
-            &:hover {
-                background-color: darken($gray, 10%);
-            }
+        &:hover {
+            background-color: darken($gray, 10%);
         }
+    }
 
-        &.btn-sm {
-            padding: $input-padding-sm;
-        }
+    .btn-sm {
+        padding: $input-padding-sm;
+    }
 
-        &.btn-lg {
-            padding: $input-padding-lg;
-        }
+    .btn-lg {
+        padding: $input-padding-lg;
+    }
 
-        &.disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+    .disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 
-        &.full-width {
-            width: 100%;
-        }
+    .full-width {
+        width: 100%;
+    }
 
-        &.inline {
-            display: inline-block;
-        }
+    .inline {
+        display: inline-block;
     }
 </style>
 

@@ -2,7 +2,7 @@
   <header :class="{'fixed': fixed}">
     <layout-container class="masthead-content">
       <nuxt-link class="logo-link" to="/">
-        <thor-logo></thor-logo>
+        <site-logo></site-logo>
       </nuxt-link>
       <nav>
         <div class="navbar-item" v-for="(link, index) in headerLinks" :key="index">
@@ -33,7 +33,7 @@
     height: $header-height;
     padding: $margin-base 0;
     text-align: center;
-    background-color: #fff;
+    background-color: $color-white;
   }
 
   .logo-link {
@@ -50,12 +50,11 @@
     justify-content: space-between;
   }
 
+  a {
+    color: $color-primary;
+  }
+
   header.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
   }
 
   img {

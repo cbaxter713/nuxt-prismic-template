@@ -1,53 +1,64 @@
 <template>
   <section class="hero-banner">
-    <div class="banner-content">
-      <h1 class="title">
-        {{ title }}
-      </h1>
-      <h3>
-        {{ subtitle }}
-      </h3>
-    </div>
-    <picture>
-      <source :srcset="desktopUrl" media="(min-width: 800px)">
-      <img :src="mobileUrl" :alt="imageAlt">
-    </picture>
+    <theme :theme="'dark'">
+    <callout-content
+                :title="$prismic.asHtml(title)"
+                :content="$prismic.asHtml(content)"
+                >
+    </callout-content>
+      <base-picture
+        :desktopImg="desktopUrl"
+        :mobileImg="mobileUrl"
+        :altText="imageAlt ? imageAlt : $prismic.asText(title)"
+      ></base-picture>
+    </theme>
   </section>
 </template>
 
 <script>
+
+  import CalloutContent from '../utility/CalloutContent.vue';
+  import PictureComponent from "../utility/PictureComponent";
+  import Theme from "../utility/Theme";
+  import BasePicture from "../base/BasePicture";
+
   export default {
-    name: "hero-banner",
-    data() {
-      return {
-      }
+    components: {
+      BasePicture,
+      Theme,
+      PictureComponent,
+      CalloutContent
     },
+    name: "hero-banner",
     props: {
-      title: String,
-      subtitle: String,
+      title: Array,
+      content: Array,
       desktopUrl: String,
       mobileUrl: String,
-      imageAlt: String
+      imageAlt: String,
     }
   }
+
+
+
+
 </script>
 
 <style scoped lang="scss">
   .hero-banner {
     position: relative;
     width: 100%;
-  }
+    position: relative;
 
-  .banner-content {
-    position: absolute;
-    top: 50%;
-    left: 15%;
-    max-width: 500px;
-    color: #fff;
-    transform: translateY(-50%);
-  }
+    img {
+      z-index: $z-index-level-page;
+      position: relative;
+      display: block;
+    }
 
-  img {
-    width: 100%;
+    .callout-content {
+      z-index: $z-index-level-page + 1;
+      position: absolute;
+    }
   }
 </style>

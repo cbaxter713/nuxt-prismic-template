@@ -21,7 +21,7 @@
       },
       breakpoint: {
         type: String,
-        default: 'lg',
+        default: 'sm',
         validator: function (value) {
           return breakpointArray.indexOf(value) !== -1
         }
@@ -46,5 +46,9 @@
 <style scoped lang="scss">
     picture {
         width: 100%;
+    }
+
+    img {
+        display: block;
     }
 </style>

@@ -3,13 +3,13 @@
     <prismic-preview :documentId="documentId">
       <hero-video v-if="bannerType === 'video'"
                   :title="title"
-                  :subtitle="subtitle"
+                  :content="content"
                   :videoUrl="bannerVideo.url"
                   :poster="bannerDesktop.url">
       </hero-video>
       <hero-banner v-else
                    :title="title"
-                   :subtitle="subtitle"
+                   :content="content"
                    :desktopUrl="bannerDesktop.url"
                    :mobileUrl="bannerMobile.url"
                    :imageAlt="bannerMobile.alt">
@@ -63,7 +63,7 @@ export default {
         documentId: entry.id,
         homeData: data,
         title: data.title,
-        subtitle: data.subtitle,
+        content: data.content,
         bannerType: data.banner_type,
         bannerVideo: data.hero_video,
         bannerDesktop: data.hero_image,
