@@ -58,6 +58,10 @@ module.exports = {
     '~plugins/mediaQueries'
   ],
 
+  resolve: {
+    extensions: ['*', '.js', '.vue', '.json'],
+  },
+
   /*
   ** Nuxt.js modules
   */

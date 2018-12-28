@@ -5,13 +5,24 @@
 </template>
 
 <script>
+
+  /**
+   * Base Button component to be used for all buttons on the site.
+   */
+
   export default {
     name: "BaseButton",
     props: {
+      /**
+       * Text to be displayed inside of the button
+       */
       label: {
         type: String,
         required: true
       },
+      /**
+       * Size of button to display (sm, md, lg)
+       */
       size: {
         type: String,
         default: 'md',
@@ -19,6 +30,9 @@
           return ['sm', 'md', 'lg'].indexOf(value) !== -1
         }
       },
+      /**
+       * Color of button to display (primary, secondary, info, warning, neutral)
+       */
       color: {
         type: String,
         default: 'primary',
@@ -26,18 +40,30 @@
           return ['primary', 'secondary', 'info', 'warning', 'neutral'].indexOf(value) !== -1
         }
       },
+      /**
+       * Relative path of route to link to internally via vue-router, on click of the button
+       */
       nuxtLink: {
         type: String,
         default: ''
       },
+      /**
+       * Url to link to using a standard href
+       */
       link: {
         type: String,
         default: ''
       },
+      /**
+       * When using a link, this determines if that link will open in an external tab or not
+       */
       externalLink: {
         type: Boolean,
         default: false
       },
+      /**
+       * Type of button to render (button, reset, submit)
+       */
       type: {
         type: String,
         default: 'button',
@@ -45,18 +71,30 @@
           return ['button', 'reset', 'submit'].indexOf(value) !== -1
         }
       },
+      /**
+       * Whether or not the button is disabled
+       */
       disabled: {
         type: Boolean,
         default: false
       },
+      /**
+       * Text to use in the HTML name attribute on the button
+       */
       name: {
         type: String,
         default: ''
       },
+      /**
+       * Gives button a width of 100% of its parent container
+       */
       full: {
         type: Boolean,
         default: false
       },
+      /**
+       * Displays button inline
+       */
       inline: {
         type: Boolean,
         default: false
@@ -151,3 +189,30 @@
         }
     }
 </style>
+
+<docs>
+    Default Button (md, primary)
+    ```jsx
+        <BaseButton label="Hello"></BaseButton>
+    ```
+
+    Large Secondary Button
+    ```jsx
+        <BaseButton label="Secondary" size="lg" color="secondary"></BaseButton>
+    ```
+
+    Small Info Button
+    ```jsx
+        <BaseButton label="Warning" size="sm" color="info"></BaseButton>
+    ```
+
+    Disabled Button
+    ```jsx
+        <BaseButton label="Button" disabled></BaseButton>
+    ```
+
+    Full Width Button
+    ```jsx
+        <BaseButton label="Full Width" full></BaseButton>
+    ```
+</docs>

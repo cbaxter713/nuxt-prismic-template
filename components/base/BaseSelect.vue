@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import BaseInputWrapper from "./BaseInputWrapper";
+  import BaseInputWrapper from "./BaseInputWrapper.vue";
   export default {
     name: "BaseSelect",
     components: {BaseInputWrapper},

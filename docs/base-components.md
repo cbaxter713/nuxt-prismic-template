@@ -1,0 +1,1 @@
+#### Base Components are the elemental building blocks of the project.  They represent custom versions of many main HTML elements, for usage and styling consistency

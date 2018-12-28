@@ -14,7 +14,8 @@
 </template>
 
 <script>
-  import LayoutContainer from "../layout/LayoutContainer";
+  import LayoutContainer from "../layout/LayoutContainer.vue";
+
   export default {
     name: 'AppMasthead',
     components: {LayoutContainer},

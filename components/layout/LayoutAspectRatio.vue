@@ -14,7 +14,7 @@
 
 <script>
   import { breakpointArray } from "../../plugins/mediaQueries";
-  import ResponsiveDisplay from "../utility/ResponsiveDisplay";
+  import ResponsiveDisplay from "../utility/ResponsiveDisplay.vue";
 
   export default {
     name: "LayoutAspectRatio",

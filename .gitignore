@@ -22,3 +22,6 @@ package-lock.json
 #config
 app-config.js
 
+#styleguide
+styleguide/build
+
