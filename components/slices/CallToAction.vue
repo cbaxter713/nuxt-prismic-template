@@ -6,9 +6,9 @@
     </prismic-link>
 
     <picture>
-      <source :srcset="fields.background_image.background_desktop.url"
+      <source :srcset="fields.background_image.url"
               media="(min-width: 800px)">
-      <img :src="fields.background_image.url">
+      <img :src="fields.background_image.mobile.url">
     </picture>
   </section>
 </template>
