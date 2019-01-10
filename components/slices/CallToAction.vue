@@ -1,7 +1,7 @@
 <template>
 
   <section class="call-to-action" :style="{'background-color': fields.background_color}">
-    <prismic-link :link="fields.cta_link">
+    <prismic-link v-if="fields.cta_link" :link="fields.cta_link">
       <span class="btn btn-primary">{{fields.cta_title}}</span>
     </prismic-link>
 

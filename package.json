@@ -11,7 +11,7 @@
     "generate": "nuxt generate",
     "deploy:heroku": "git push heroku master",
     "heroku-postbuild": "npm run build",
-    "styleguide": "vue-styleguidist server --config styleguide.config.js",
+    "styleguide": "vue-styleguidist server --open --config styleguide.config.js",
     "styleguide:build": "vue-styleguidist build --config styleguide.config.js"
   },
   "dependencies": {

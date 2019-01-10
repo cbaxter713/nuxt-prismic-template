@@ -1,12 +1,8 @@
 <template>
   <section class="hero-video">
     <div class="callout-content">
-      <h1 class="title">
-        {{ title }}
-      </h1>
-      <p class="large">
-        {{ content }}
-      </p>
+      <span class="title" v-html="title"></span>
+      <span class="large" v-html="content"></span>
     </div>
     <video class="video-src" autoplay="autoplay"
            loop="loop" muted="muted"

@@ -2,14 +2,14 @@
   <div class="wrapper">
     <prismic-preview :documentId="documentId">
       <hero-video v-if="bannerType === 'video'"
-                  :title="title"
-                  :content="content"
+                  :title="$prismic.asHtml(title)"
+                  :content="$prismic.asHtml(content)"
                   :videoUrl="bannerVideo.url"
                   :poster="bannerDesktop.url">
       </hero-video>
       <hero-banner v-else
-                   :title="title"
-                   :content="content"
+                   :title="$prismic.asHtml(title)"
+                   :content="$prismic.asHtml(content)"
                    :desktopUrl="bannerDesktop.url"
                    :mobileUrl="bannerMobile.url"
                    :imageAlt="bannerMobile.alt">
