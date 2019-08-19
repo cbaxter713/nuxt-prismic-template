@@ -52,15 +52,15 @@
 <style scoped lang="scss">
   app-masthead {
     position: relative;
-    z-index: $header-z-index;
+    //z-index: $header-z-index;
   }
 
   main {
     position: relative;
-    z-index: $main-page-z-index;
+   // z-index: $main-page-z-index;
   }
 
   app-footer {
-    z-index: $footer-z-index;
+   // z-index: $footer-z-index;
   }
 </style>
